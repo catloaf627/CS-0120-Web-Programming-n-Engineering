@@ -1,7 +1,19 @@
 <html>
 
 <head>
+  <meta charset="UTF-8"> <!-- avoid mojibake -->
   <title>About Me!</title>
+  <style type = 'text/css'>
+    td {background-color:#fffaf0;color:#5a4632} 
+    th {background-color:#deb887;color:#fff}
+    .book_name {
+      font-size: 18px;
+      font-weight: 600;
+      font-family: "Georgia", "Times New Roman", serif;
+      font-style: italic;
+      color: #2c3e50;
+    }
+  </style>
 </head>
 
 <body>
@@ -21,7 +33,7 @@
 
   <h3>My Favorite Restaurant</h3>
   <p>
-    My Favorite Restaurant is <a href="https://www.jiangnanny.com/ourlocations" target="_blank">Jiang Nan</a><br>
+    My Favorite Restaurant is <a href="https://www.jiangnanny.com/ourlocations" target="_blank">Jiang Nan(江南)</a><br>
     The main reason I love it is very simple: the food is absolutely delicious!  <br>
     Here's a fake link! <a href = 'fake.html'  target="_blank"> Click </a> <br>
   </p>
@@ -34,7 +46,7 @@
     together with scallions and a bit of sweet sauce. 
     The most delicious part of the duck is the crispy breast skin. 
     I like to dip it in sugar — it melts in the mouth and tastes amazing.
-    <div style="clear: both;"></div>      <!-- 清除浮动 -->
+    <div style="clear: both;"></div>      <!-- clear floats -->
   </p>
 
   <h3>My favorite books</h3>
@@ -43,19 +55,31 @@
       <th> Book Name </th> <th> Cover Image </th> <th> Author </th> <th> Summary </th>
     </tr>
     <tr>
-      <td>Anna Karenina </td> <td><img src="anna_karenina.jpg" alt="Anna Karenina Cover" width="80"></td> <td> Leo Tolstoy </td> <td> A tragic love story set in Russian high society, following Anna’s affair with Vronsky and her struggle with societal expectations. </td>
+      <td class = 'book_name'>Anna Karenina </td> 
+      <td><img src="anna_karenina.jpg" alt="Anna Karenina Cover" width="80"></td> 
+      <td> Leo Tolstoy </td> 
+      <td> A tragic love story set in Russian high society, following Anna’s affair with Vronsky and her struggle with societal expectations. </td>
     </tr>
     <tr>
     <tr>
-      <td>Gone with the Wind</td> <td><img src="gone_with_the_wind.jpg" alt="Gone with the Wind Cover" width="80"></td>  <td>Margaret Mitchell</td> <td>A sweeping historical romance set during the American Civil War, following the life and struggles of Scarlett O'Hara.</td>
+      <td class = 'book_name'>Gone with the Wind</td> 
+      <td><img src="gone_with_the_wind.jpg" alt="Gone with the Wind Cover" width="80"></td>  
+      <td>Margaret Mitchell</td> 
+      <td>A sweeping historical novel set during the American Civil War, following the life and struggles of Scarlett O'Hara.</td>
     </tr>
 
     <tr>
-      <td>Madame Bovary</td> <td><img src="madame_bovary.jpg" alt="Madame Bovary Cover" width="80"></td> <td>Gustave Flaubert</td> <td>A story about Emma Bovary, a woman trapped in a provincial life, whose romantic dreams lead to disillusionment and tragedy.</td>
+      <td class = 'book_name'>Madame Bovary</td> 
+      <td><img src="madame_bovary.jpg" alt="Madame Bovary Cover" width="80"></td> 
+      <td>Gustave Flaubert</td> 
+      <td>A story about Emma Bovary, a woman trapped in a provincial life, whose romantic dreams lead to disillusionment and tragedy.</td>
     </tr>
 
     <tr>
-      <td>The Painted Veil</td> <td><img src="the_painted_veil.jpg" alt="The Painted Veil Cover" width="80"></td> <td>W. Somerset Maugham</td> <td>A novel about love, betrayal, and self-discovery, set against the backdrop of a cholera epidemic in China.</td>
+      <td class = 'book_name'>The Painted Veil</td> 
+      <td><img src="the_painted_veil.jpg" alt="The Painted Veil Cover" width="80"></td> 
+      <td>W. Somerset Maugham</td> 
+      <td>A novel about love, betrayal, and self-discovery, set against the backdrop of a cholera epidemic in China.</td>
     </tr>
   </table>
 
