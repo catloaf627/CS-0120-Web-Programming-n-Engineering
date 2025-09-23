@@ -124,12 +124,20 @@
     }
 
     .social-fixed img {
-      width: 36px;
-      height: 36px;
+      width: 52px;
+      height: 52px;
       display: block;
       border-radius: 18px;
       transition: transform .15s ease, opacity .15s ease;
     }
+
+    @media (max-width: 600px) { /* cellphone */
+    .social-fixed img {
+        width: 10vw;   /* 10% of viewport width*/
+        height: 10vw;
+      }
+    }
+
     /* fancy features */
     .social-fixed a:hover img {
       transform: translateY(-1px);
