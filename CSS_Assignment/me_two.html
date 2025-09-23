@@ -3,35 +3,171 @@
 <head>
   <meta charset="UTF-8"> <!-- avoid mojibake -->
   <title>About Me!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style type = 'text/css'>
-    td {background-color:#fffaf0;color:#5a4632} 
-    th {background-color:#deb887;color:#fff}
-    .book_name {
-      font-size: 18px;
-      font-weight: 600;
-      font-family: "Georgia", "Times New Roman", serif;
-      font-style: italic;
-      color: #2c3e50;
+
+    /* 1. Set the font to a sans serif google font. */
+    body {
+      font-family: 'Roboto', sans-serif;
     }
+
+    /* 2. Set the color and size of all H1 and H2 and leave a margin of 30px below them */
+    h1 {
+      color: #3498DB;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+    h2 {
+      color: #5D6D7E;
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+
+    /* 3. Put a border around your list and center it on the page (note: do NOT center the list items) */
+    .list-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+    }
+    .nice-list {
+      border: 1px solid #D0D7DE;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 0;
+      max-width: 80%;
+      background: #fff;
+      text-align: left;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    .nice-list li + li {
+      margin-top: 8px; /* add some padding */
+    }
+
+    /* 4. Display your favorite food image in a div using a background image. Place the explanatory text in a div that is adjacent to it. */
+    .food-container {
+      display: flex;
+      align-items: center;
+      margin: 40px;
+      gap: 20px;
+    }
+
+    .food-img {
+      width: 300px;
+      height: 200px;
+      background-image: url('pic/peking_duck.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .food-text {
+      flex: 1;
+    }
+
+    /* 5. Add a background color to alternate lines in the table */
+    .zebra {
+      border-collapse: collapse;
+      margin: 20px;
+      text-align: left;
+    }
+    .zebra th,
+    .zebra td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+    }
+    .zebra tr:nth-of-type(even) {
+      background-color: #f2f6f9;
+    }
+    /* 6. Create a form to let visitors sign a "guest book" - get the  get a user's first and last name, email, city and state. 
+    Use a <select> element to choose the state (5-6 states in your area is sufficient). Labels for form elements should be in a <label> tag.  
+    Labels should be in their own column and form elements should be in a column to the right of the labels,  All labels should be right aligned. */
+    .formrow {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    label {
+      width: 120px;
+      text-align: right;
+      margin-right: 10px;
+    }
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: 300px;
+      padding: 6px;
+    }
+    button {
+      margin-top: 15px;
+      margin-left: 15px;
+      padding: 8px 16px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+
+    /* 7. Add icons for Facebook and Twitter (X) to the page that are in a fixed position of 100px from the top and 35px in from the right corner of the page */
+    .social-fixed {
+      position: fixed;
+      top: 100px;
+      right: 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 9999;/* make sure it stays on top */
+    }
+
+    .social-fixed img {
+      width: 36px;
+      height: 36px;
+      display: block;
+      border-radius: 18px;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    /* fancy features */
+    .social-fixed a:hover img {
+      transform: translateY(-1px);
+      opacity: .9;
+    }
+
+    /* page end footer */
+    .page-end {
+      text-align: center;
+      margin-top: 50px;
+      padding: 30px 0;
+      color: #666;
+      font-style: italic;
+    }
+
+
+
+
   </style>
 </head>
 
 <body>
   <h1>Yuqing Wang</h1> 
 
-  <h3>A trip I took</h3>
+  <h2>A trip I took</h2>
   A few years ago, I traveled to Bali, Indonesia. It was my first time visiting the island, and I was amazed by the beautiful beaches and the relaxed atmosphere.
   During the trip, I learned how to surf. At first, it was difficult to balance on the board, and I fell into the water many times. But after a few lessons, I could finally ride small waves on my own.
   Surfing in Bali was an unforgettable experience — the warm water, the sound of the waves, and the feeling of standing on the board made me feel free and full of energy.
 
-  <h3>My Favorite pet names</h3>
-  <ul>
+  <h2>My Favorite pet names</h2>
+  <div class="list-wrap">
+  <ul class="nice-list">
     <li>A cat named Crookshanks (from <i>Harry Potter</i>)</li>
     <li>A horse named Rocinante (from <i>Don Quixote</i>)</li>
     <li>A dog named Karenin (I've been reading <i>Anna Karenina</i>. In <i>The Unbearable Lightness of Being</i>, there's a dog named after Karenin, Anna's husband.)</li>
   </ul>
+</div>
 
-  <h3>My Favorite Restaurant</h3>
+  <h2>My Favorite Restaurant</h2>
   <p>
     My Favorite Restaurant is <a href="https://www.jiangnanny.com/ourlocations" target="_blank">Jiang Nan(江南)</a><br>
     The main reason I love it is very simple: the food is absolutely delicious!  <br>
@@ -41,50 +177,107 @@
     Here's a fake link! <a href = 'fake.html'  target="_blank"> Click </a> <br>
   </p>
 
-  <h3>My favorite food</h3>
-     
-  <p>
-    <img src="peking_duck.jpg" width = "200" align="left"> 
-    My favorite food is <b>Peking Duck</b>. The best way to enjoy it is by wrapping thin pancakes around slices of duck, 
-    together with scallions and a bit of sweet sauce. 
-    The most delicious part of the duck is the crispy breast skin. 
-    I like to dip it in sugar — it melts in the mouth and tastes amazing.
-  </p>
-    <div style="clear: both;"></div>      <!-- clear floats -->
+  <h2>My favorite food</h2>
 
-  <h3>My favorite books</h3>
-  <table border = '1' cellspacing = '0' cellpadding = '5'>
+
+  <div class="food-container">
+    <div class="food-img">
+    </div>
+    <div class="food-text">
+      <p>
+         My favorite food is <b>Peking Duck</b>. The best way to enjoy it is by wrapping thin pancakes around slices of duck, together with scallions and a bit of sweet sauce. 
+         The most delicious part of the duck is the crispy breast skin. I like to dip it in sugar — it melts in the mouth and tastes amazing.
+      </p>
+    </div>
+  </div>
+
+
+  <h2>My favorite books</h2>
+  <table class = "zebra" border = '1' cellspacing = '0' cellpadding = '5'>
     <tr>
       <th> Book Name </th> <th> Cover Image </th> <th> Author </th> <th> Summary </th>
     </tr>
     <tr>
       <td class = 'book_name'>Anna Karenina </td> 
-      <td><img src="anna_karenina.jpg" alt="Anna Karenina Cover" width="80"></td> 
+      <td><img src="pic/anna_karenina.jpg" alt="Anna Karenina Cover" width="80"></td> 
       <td> Leo Tolstoy </td> 
       <td> A tragic love story set in Russian high society, following Anna’s affair with Vronsky and her struggle with societal expectations. </td>
     </tr>
     <tr>
-    <tr>
       <td class = 'book_name'>Gone with the Wind</td> 
-      <td><img src="gone_with_the_wind.jpg" alt="Gone with the Wind Cover" width="80"></td>  
+      <td><img src="pic/gone_with_the_wind.jpg" alt="Gone with the Wind Cover" width="80"></td>  
       <td>Margaret Mitchell</td> 
       <td>A sweeping historical novel set during the American Civil War, following the life and struggles of Scarlett O'Hara.</td>
     </tr>
 
     <tr>
       <td class = 'book_name'>Madame Bovary</td> 
-      <td><img src="madame_bovary.jpg" alt="Madame Bovary Cover" width="80"></td> 
+      <td><img src="pic/madame_bovary.jpg" alt="Madame Bovary Cover" width="80"></td> 
       <td>Gustave Flaubert</td> 
       <td>A story about Emma Bovary, a woman trapped in a provincial life, whose romantic dreams lead to disillusionment and tragedy.</td>
     </tr>
 
     <tr>
       <td class = 'book_name'>The Painted Veil</td> 
-      <td><img src="the_painted_veil.jpg" alt="The Painted Veil Cover" width="80"></td> 
+      <td><img src="pic/the_painted_veil.jpg" alt="The Painted Veil Cover" width="80"></td> 
       <td>W. Somerset Maugham</td> 
       <td>A novel about love, betrayal, and self-discovery, set against the backdrop of a cholera epidemic in China.</td>
     </tr>
   </table>
+
+  <!-- 6. Create a form to let visitors sign a "guest book" - get the  get a user's first and last name, email, city and state. 
+  Use a <select> element to choose the state (5-6 states in your area is sufficient). Labels for form elements should be in a <label> tag.  
+  Labels should be in their own column and form elements should be in a column to the right of the labels,  All labels should be right aligned. -->
+  <form id="guestForm">
+    <div class="formrow">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName">
+    </div>
+    <div class="formrow">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName">
+    </div>
+    <div class="formrow">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+    </div>
+    <div class="formrow">
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city">
+    </div>
+    <div class="formrow">
+      <label for="state">State:</label>
+      <select id="state" name="state">
+        <option value="" disabled selected hidden>-- Select a state --</option>
+        <option value="MA">Massachusetts</option>
+        <option value="CA">California</option>
+        <option value="WA">Washington</option>
+        <option value="NY">New York</option>
+        <option value="TX">Texas</option>
+      </select>
+      <button type="button" id="submitBtn">Submit</button>  <!-- add a fake submit button -->
+    </div>
+  </form>
+  <!-- add a fake submit button -->
+  <script>
+    const form = document.getElementById("guestForm");
+    document.getElementById("submitBtn").addEventListener("click", function() {
+      alert("Your guest book entry has been submitted! (Just kidding😁)");
+      form.reset();
+    });
+  </script>
+
+  <!-- 7. Add icons for Facebook and Twitter (X) to the page that are in a fixed position of 100px from the top and 35px in from the right corner of the page -->
+  <div class="social-fixed">
+    <a href="https://www.facebook.com" aria-label="Facebook" target="_blank" rel="noopener">
+      <img src="pic/facebook.jpg" alt="Facebook">
+    </a>
+    <a href="https://twitter.com" aria-label="Twitter (X)" target="_blank" rel="noopener">
+      <img src="pic/twitter.jpg" alt="Twitter (X)">
+    </a>
+  </div>
+
+  <div class="page-end">--- The End ---</div>
 
 </body>
 </html>
