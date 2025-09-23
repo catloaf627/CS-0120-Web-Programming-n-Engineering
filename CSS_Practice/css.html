@@ -8,33 +8,59 @@ body, html {
   font-size: 18px;
 }
 
+/* anchor/in this case, a button */
+
 div.box a {
+  /* 去掉超链接默认的下划线 */
   text-decoration: none;
+  /* 链接显示为块元素（独占一行） */
   display: block;
+  /* 链接按钮的大小 */
   width: 100px;
   height: 30px;
+  /* 背景色为紫蓝色 */
   background-color: #452BC9;
+  /* 字体颜色为白色 */
   color: #fff;
+  /* 让文字大小和按钮大小一致————居中 */
   line-height: 30px;
+  /* 把按钮定位在盒子底部，距底部 10pt */
   position: absolute;
   bottom: 10px;
-  left: 30%;
+  /* 居中 */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
+/* box */
+
 div.box {
+  /* 每个盒子的大小 */
   width: 250px;
   height: 170px;
+  /* 背景灰色 */
   background-color: #ddd;
+  /* 盒子并排显示 */
   display: inline-block;
+  /* 外边距（上下 5px，左右 8px） */
   margin: 5px 8px;
+  /* 顶部对齐 */
   vertical-align: top;
+  /* 内容居中 */
   text-align: center;
+  /* 内边距（上方 60px，为了给顶部小图标留空间） */
   padding: 60px 8px 8px 8px;
+  /* 让 padding 包含在总宽高里（box本身不会被 padding 和 border 撑大一圈） */
   box-sizing: border-box;
+  /* 让 <a> 的定位以盒子为准，不会乱跑到页面外 */
   position: relative;
+  /* 顶部放一张图片 */
   background-image: url("scale.jpg");
-  background-size: 20px 20px;
+  /* 图片缩放为 20×20 */
+  background-size: 50px 50px;
+  /* 不重复 */
   background-repeat: no-repeat;
+  /* 水平居中，顶部对齐 */
   background-position: 50% 0;
 }
 
@@ -43,8 +69,11 @@ div.box {
   </style>
 </head>
 <body>
+  <!-- box1 -->
   <div class = 'box'> here is some text1 <a href = '#'> Learn More </a> </div>
+  <!-- box2 -->
   <div class = 'box'> here is some text2 here is some text2 here is some text2 here is some text2 here is some text2 here is some text2 here is some text2 <a href = '#'> Learn More </a> </div>
+  <!-- box3 -->
   <div class = 'box'> here is some text3 <a href = '#'> Learn More </a> </div>
 </body>
 </html>
