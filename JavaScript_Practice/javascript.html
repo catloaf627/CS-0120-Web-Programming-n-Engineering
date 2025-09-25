@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+
+<head>
+  <meta charset="UTF-8"> <!-- avoid mojibake -->
+  <title> Javascript demo </title>
+  <!-- available forever -->
+  <script>   
+    x = "cat"
+    y = "loaf"
+    z = x+y
+    // function press()
+    // {
+    //   document.getElementById("title").innerHTML = "My Great JS Demo"
+    // }
+    press = () => {document.getElementById("title").innerHTML = "My Great JS Demo"}
+  </script>
+</head>
+
+
+<body>
+  <h1 id = "title">JS Demo</h1>
+  <script> 
+    document.write("hey this is written with JS <br />")
+    document.write("the answer is: " + z + "<br />");
+    // alert("Hey!\nHow are you?")
+    // alert(parseInt("1 is a number"))
+    // alert(parseInt("the number is 1"))
+    console.log("This is a secret")
+    a_num = "3"
+    document.write("a expression is " + (a_num == 3) + "<br />")
+    b_num = "3"
+    document.write("a strict expression is " + (b_num === 3) + "<br />")
+
+    add = (a, b) => a+b
+    sub = (a, b) => a-b
+    operate = (a, b, op) => op(a, b)
+    alert(operate(7,2,add))
+
+  </script>
+
+  <hr />
+  <input type = "button" value="Press me" onClick = "press()">
+
+
+</body>
+</html>
