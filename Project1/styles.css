@@ -95,13 +95,10 @@ p {
   font-family: "Inter", sans-serif;
 }
 
-/* Cards & Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-}
+/* Cards */
+
 .card {
+  min-height: 250px;
   background: #1e1e1e;
   border: 1px solid #333;
   border-radius: 12px;
@@ -112,6 +109,12 @@ p {
   font-family: "Lora", serif; /* elegant body font */
   font-size: 18px;
   text-align: center; /* centers text nicely on backgrounds */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+  text-align: center;
 }
 
 .card:hover {
