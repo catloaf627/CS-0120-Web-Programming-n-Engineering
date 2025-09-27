@@ -7,8 +7,8 @@
 
 /* Base */
 body {
-  font-family: "Playfair Display", Georgia, serif;
-  line-height: 1.6;
+  font-family: "Lora", Georgia, serif;
+  line-height: 1.7;
   background: #121212;
   color: #f9f6f7;
 }
@@ -82,12 +82,14 @@ main {
   max-width: 960px;
   margin: auto;
 }
-h2 {
-  font-size: 32px;
-  margin-bottom: 16px;
+h1, h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   color: #f7d9e3;
   text-align: center;
 }
+
 p {
   margin-bottom: 16px;
   font-family: "Inter", sans-serif;
@@ -103,22 +105,35 @@ p {
   background: #1e1e1e;
   border: 1px solid #333;
   border-radius: 12px;
-  padding: 16px;
+  padding: 24px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #fff; /* ensure card text is white */
+  font-family: "Lora", serif; /* elegant body font */
+  font-size: 18px;
+  text-align: center; /* centers text nicely on backgrounds */
 }
+
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.6);
 }
+
 .card a {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: "Cormorant Garamond", serif; /* elegant link style */
+  font-weight: 700;
   color: #f7d9e3;
-  font-weight: bold;
   text-decoration: none;
+  transition: color 0.3s;
 }
+
 .card a:hover {
   text-decoration: underline;
+  color: #fff; /* subtle hover effect */
 }
+
 
 /* Footer */
 footer {
