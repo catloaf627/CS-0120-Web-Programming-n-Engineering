@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Us - Mirroracle Band</title>
+
+  <style>
+    body {
+      font-family: "Lora", Georgia, serif;
+      line-height: 1.7;
+      background: #121212;
+      color: #f9f6f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 32px auto;
+      padding: 0 16px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #f7d9e3;
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    /* Guest Form */
+    .guest-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 24px;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    }
+
+    .guest-form label {
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #f7d9e3;
+    }
+
+    .guest-form input,
+    .guest-form textarea {
+      padding: 12px;
+      border: 1px solid #444;
+      border-radius: 6px;
+      background: #121212;
+      color: #f9f6f7;
+      font-family: "Lora", serif;
+    }
+
+    .guest-form input:focus,
+    .guest-form textarea:focus {
+      outline: none;
+      border-color: #a84d6a;
+    }
+
+    .guest-form button {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #a84d6a;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .guest-form button:hover {
+      background: #8c3e58;
+    }
+
+    /* Contact info */
+    #contact-info {
+      margin-top: 40px;
+      text-align: center;
+    }
+    #contact-info a {
+      color: #f7d9e3;
+      text-decoration: none;
+    }
+    #contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #1c1c1c;
+      text-align: center;
+      padding: 20px;
+      color: #ccc;
+      border-top: 2px solid #333;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <section id="book">
+      <h1>Book the Mirroracle Band</h1>
+      <p style="text-align:center;">Fill out the form below to request availability and pricing.</p>
+
+      <form action="#" method="post" class="guest-form">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="date">Event Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="guests">Number of Guests:</label>
+        <input type="number" id="guests" name="guests">
+
+        <label for="message">Message / Special Requests:</label>
+        <textarea id="message" name="message" rows="5"></textarea>
+
+        <button type="submit">Send Booking Request</button>
+      </form>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section id="contact-info">
+      <h2>Our Contact Information</h2>
+      <p>Email: <a href="mailto:info@mirroracleband.com">info@mirroracleband.com</a></p>
+      <p>Phone: <a href="tel:+123456789">+1 (234) 567-89</a></p>
+      <p>Follow us on:
+        <a href="#">Instagram</a> |
+        <a href="#">Facebook</a> |
+        <a href="#">YouTube</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Mirroracle Band</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
