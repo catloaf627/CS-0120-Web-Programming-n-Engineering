@@ -5,91 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wedding Band Site</title>
 
-  <!-- External stylesheet -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Internal stylesheet -->
   <style>
     body {
       margin: 0;
       font-family: sans-serif;
     }
 
-    /* Sidebar */
     .sidebar {
       position: fixed;
       top: 0;
-      left: -180px; /* partially hidden */
+      left: -180px;
       width: 220px;
       height: 100%;
       transition: left 0.3s ease;
-      padding: 1rem;
+      padding: 16px;
       z-index: 1000;
     }
-    .sidebar h2 {
-      margin-top: 0;
-    }
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-    .sidebar ul li {
-      margin: 1rem 0;
-    }
-    .sidebar a {
-      text-decoration: none;
-    }
+    .sidebar h2 { margin-top: 0; }
+    .sidebar ul { list-style: none; padding: 0; }
+    .sidebar ul li { margin: 16px 0; }
 
-    /* Sidebar hover reveal */
-    .sidebar:hover {
+    .sidebar:hover,
+    .sidebar:focus-within,
+    .sidebar.open {
       left: 0;
     }
 
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 900;
-    }
-    header nav {
+    .sidebar-icon {
+      position: absolute;
+      top: 50%;
+      right: 8px;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 1rem;
+      font-size: 20px;
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
     }
-    header nav a {
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-    }
+    .sidebar:not(.open):not(:hover) .sidebar-icon::before { content: "\276F"; }
+    .sidebar.open .sidebar-icon::before,
+    .sidebar:hover .sidebar-icon::before { content: "\276E"; }
 
-    /* Main Layout */
-    main {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 2rem;
-    }
-    h2 {
-      margin-bottom: 1rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-    .card {
-      padding: 1rem;
-      border-radius: 12px;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-    }
+    header { position: sticky; top: 0; z-index: 900; }
+    header nav { display: flex; justify-content: center; gap: 16px; }
+
+    main { max-width: 960px; margin: 32px auto; padding: 0 16px; }
+    section { margin-bottom: 32px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
   </style>
 </head>
 <body>
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar" aria-label="Site menu">
+    <div class="sidebar-icon" id="sidebarIcon" aria-hidden="true"></div>
     <h2>Menu</h2>
     <ul>
       <li><a href="#home">Home</a></li>
@@ -151,6 +124,11 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    const sidebar = document.getElementById('sidebar');
+    const icon = document.getElementById('sidebarIcon');
+    icon.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
   </script>
 </body>
 </html>
