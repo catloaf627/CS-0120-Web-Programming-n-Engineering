@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Band Site</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -220px; /* hidden */
+      width: 220px;
+      height: 100%;
+      background: #333;
+      color: #fff;
+      transition: left 0.3s ease;
+      padding: 1rem;
+      z-index: 1000;
+    }
+    .sidebar h2 {
+      margin-top: 0;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar ul li {
+      margin: 1rem 0;
+    }
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+    }
+    
+    /* Sidebar trigger zone */
+    .sidebar-trigger {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 100%;
+      z-index: 1100;
+    }
+    .sidebar-trigger:hover ~ .sidebar,
+    .sidebar:hover {
+      left: 0;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: #fafafa;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem;
+      z-index: 900;
+    }
+    header nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    header nav a {
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      color: #000;
+      border: 1px solid #000;
+    }
+
+    /* Main Layout */
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    h2 {
+      margin-bottom: 1rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: #e0e0e0;
+      padding: 1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #f4f4f4;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar-trigger"></div>
+  <aside class="sidebar">
+    <h2>Menu</h2>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#artists">Artists</a></li>
+      <li><a href="#styles">Styles</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#book">Book Us</a></li>
+    </ul>
+  </aside>
+
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#artists">Artists</a>
+      <a href="#styles">Styles</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#book">Book Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <h2>Stories Written in Music</h2>
+      <p>Your Perfect Wedding, With the Perfect Sound <a href="#book"><em>Book now!</em></a></p>
+    </section>
+
+    <section id="styles">
+      <h2>Explore Styles</h2>
+      <div class="grid">
+        <div class="card">Romantic Ballads (picture)<br><a href="#">Watch Videos ></a></div>
+        <div class="card">Classical & Ceremony Music (picture)<br><a href="#">Watch Videos ></a></div>
+        <div class="card">Rock Classics (picture)<br><a href="#">Watch Videos ></a></div>
+        <div class="card">R&B / Soul (picture)<br><a href="#">Watch Videos ></a></div>
+      </div>
+      <p><a href="#">See All Genres ></a></p>
+    </section>
+
+    <section id="portfolio">
+      <h2>Unforgettable Moments</h2>
+      <div class="card">A Glimpse of Forever<br><a href="#">See More Highlights ></a></div>
+    </section>
+
+    <section id="reviews">
+      <h2>Love Notes from Newlyweds</h2>
+      <div class="card">
+        <p>“They made our wedding unforgettable — the dance floor was never empty!” — Emily & Daniel, 2024</p>
+        <p>“Professional, fun, and absolutely perfect for our big day.” — Sarah & James, 2023</p>
+        <a href="#">Read More Reviews ></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Contact info (email, phone), social media links, copyright.</p>
+    <p>&copy; <span id="year"></span> Wedding Band</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
