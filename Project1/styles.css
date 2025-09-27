@@ -32,6 +32,60 @@ header nav a:hover {
   color: #fff;
 }
 
+/* Base Menu */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.menu li {
+  position: relative;
+}
+.menu a {
+  color: #f9f6f7;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+/* First-level submenu */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1c1c1c;
+  border: 1px solid #333;
+  list-style: none;
+  min-width: 220px;
+  z-index: 999;
+}
+/* Second-level submenu */
+.submenu .submenu {
+  top: 0;        /* aligned with the parent item */
+  left: 100%;    /* fly out to the right */
+}
+.submenu li a {
+  padding: 10px;
+  color: #ddd;
+}
+.submenu li a:hover {
+  background: #2c2c2c;
+  color: #f7d9e3;
+}
+
+/* Show submenu on hover */
+.dropdown:hover > .submenu {
+  display: block;
+}
+
+/* Second-level submenu (opens to the right) */
+.submenu.right {
+  top: 0;
+  left: 100%;
+}
+
+
 /* Sidebar */
 .sidebar {
   background: #1c1c1c;
@@ -136,6 +190,60 @@ p {
   text-decoration: underline;
   color: #fff; /* subtle hover effect */
 }
+
+/* Guest Form */
+.guest-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+.guest-form label {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #f7d9e3;
+}
+
+.guest-form input,
+.guest-form textarea {
+  padding: 12px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: #121212;
+  color: #f9f6f7;
+  font-family: "Lora", serif;
+}
+
+.guest-form input:focus,
+.guest-form textarea:focus {
+  outline: none;
+  border-color: #a84d6a;
+}
+
+.guest-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #a84d6a;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.guest-form button:hover {
+  background: #8c3e58;
+}
+
 
 
 /* Footer */
