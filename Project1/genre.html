@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Music Genres - Wedding Band</title>
+
+  <style>
+    body {
+      font-family: "Lora", Georgia, serif;
+      line-height: 1.7;
+      background: #121212;
+      color: #f9f6f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 32px auto;
+      padding: 0 16px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #f7d9e3;
+      font-family: "Cormorant Garamond", serif;
+      margin-bottom: 32px;
+    }
+
+    .genre-card {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+      font-family: "Lora", serif;
+    }
+
+    .genre-card h2 {
+      color: #f7d9e3;
+      margin-bottom: 12px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+    }
+
+    .genre-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .genre-card li {
+      margin: 6px 0;
+      font-size: 16px;
+    }
+
+    footer {
+      background: #1c1c1c;
+      text-align: center;
+      padding: 20px;
+      color: #ccc;
+      border-top: 2px solid #333;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <h1>All Music Genres</h1>
+
+    <!-- Romantic Ballads -->
+    <div class="genre-card">
+      <h2>Romantic Ballads</h2>
+      <ul>
+        <li>Perfect — Ed Sheeran</li>
+        <li>Thinking Out Loud — Ed Sheeran</li>
+        <li>Photograph — Ed Sheeran</li>
+        <li>All of Me — John Legend</li>
+        <li>Ordinary People — John Legend</li>
+        <li>My Heart Will Go On — Celine Dion</li>
+        <li>Because You Loved Me — Celine Dion</li>
+        <li>The Power of Love — Celine Dion</li>
+        <li>Someone Like You — Adele</li>
+        <li>Make You Feel My Love — Adele</li>
+      </ul>
+    </div>
+
+    <!-- Classical & Ceremony Music -->
+    <div class="genre-card">
+      <h2>Classical & Ceremony Music</h2>
+      <ul>
+        <li>Canon in D — Johann Pachelbel</li>
+        <li>Jesu, Joy of Man’s Desiring — Bach</li>
+        <li>Air on the G String — Bach</li>
+        <li>Wedding March — Mendelssohn</li>
+        <li>Ave Maria — Schubert</li>
+        <li>Ode to Joy — Beethoven</li>
+      </ul>
+    </div>
+
+    <!-- Rock Classics -->
+    <div class="genre-card">
+      <h2>Rock Classics</h2>
+      <ul>
+        <li>All You Need Is Love — Beatles</li>
+        <li>Hey Jude — Beatles</li>
+        <li>Let It Be — Beatles</li>
+        <li>Jailhouse Rock — Elvis Presley</li>
+      </ul>
+    </div>
+
+    <!-- R&B / Soul -->
+    <div class="genre-card">
+      <h2>R&B / Soul</h2>
+      <ul>
+        <li>Greatest Love of All — Whitney Houston</li>
+        <li>I Will Always Love You — Whitney Houston</li>
+        <li>Love Me Tender — Elvis Presley</li>
+        <li>Can’t Help Falling in Love — Elvis Presley</li>
+      </ul>
+    </div>
+
+    <!-- Pop Hits -->
+    <div class="genre-card">
+      <h2>Pop Hits</h2>
+      <ul>
+        <li>I Wanna Dance with Somebody — Whitney Houston</li>
+        <li>Rolling in the Deep — Adele</li>
+        <li>Tonight (Best You Ever Had) — John Legend</li>
+      </ul>
+    </div>
+
+    <!-- Dance / Party Anthems -->
+    <div class="genre-card">
+      <h2>Dance / Party Anthems</h2>
+      <ul>
+        <li>I Wanna Dance with Somebody — Whitney Houston</li>
+      </ul>
+    </div>
+
+    <!-- Jazz & Cocktail Hour -->
+    <div class="genre-card">
+      <h2>Jazz & Cocktail Hour</h2>
+      <ul>
+        <li>Fly Me to the Moon — Frank Sinatra</li>
+        <li>The Way You Look Tonight — Frank Sinatra</li>
+        <li>At Last — Etta James</li>
+      </ul>
+    </div>
+
+    <!-- Country Love Songs -->
+    <div class="genre-card">
+      <h2>Country Love Songs</h2>
+      <ul>
+        <li>From This Moment On — Shania Twain</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Wedding Band</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
