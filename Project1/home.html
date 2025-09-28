@@ -60,22 +60,25 @@
       justify-content: center;
       gap: 12px;
     }
-
     header { 
-      position: sticky; 
+      position: fixed; 
       top: 0; 
+      left: 0; 
+      width: 100%;
       z-index: 900; 
+      background: #1e1e1e;
     }
+
     header nav { 
       display: flex; 
-      justify-content: center; 
+      justify-content: center;
       gap: 16px; 
     }
 
     main { 
       max-width: 960px; 
       margin: 32px auto; 
-      padding: 0 16px; 
+      padding: 50px 16px 0 16px;  /* top padding 80px, right 16px, bottom 0, left 16px */
     }
     section { 
       margin-bottom: 32px; 
