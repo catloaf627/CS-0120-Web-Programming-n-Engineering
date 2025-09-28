@@ -32,6 +32,22 @@ header nav a:hover {
   color: #fff;
 }
 
+/* give HOME a different font */
+.fancy-home {
+  font-family: "Cormorant Garamond", serif; /* elegant font */
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase; /* optional */
+  transition: color 0.3s, transform 0.2s ease-in-out;
+}
+
+.fancy-home:hover {
+  color: #fff; 
+  transform: scale(1.05);
+}
+
+
 /* Base Menu */
 .menu {
   list-style: none;
