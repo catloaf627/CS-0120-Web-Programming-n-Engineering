@@ -130,6 +130,47 @@ header nav a:hover {
   content: '\276F';
 }
 
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -220px;   /* hidden by default */
+  width: 220px;
+  height: 100%;
+  background: #1c1c1c;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  left: 0;        /* slide in */
+}
+
+/* Sidebar arrow button */
+.sidebar-icon {
+  position: absolute;
+  top: 20px;
+  right: -30px;   /* stick out so it’s clickable */
+  width: 30px;
+  height: 30px;
+  background: #a84d6a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1100;  /* keep above sidebar */
+}
+
+.sidebar.open .sidebar-icon::before {
+  content: "⮜";  /* left arrow when open */
+  color: #fff;
+}
+
+.sidebar:not(.open) .sidebar-icon::before {
+  content: "⮞";  /* right arrow when closed */
+  color: #fff;
+}
+
 /* Main Sections */
 main {
   padding: 32px 16px;
