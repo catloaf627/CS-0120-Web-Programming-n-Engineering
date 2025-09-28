@@ -26,6 +26,29 @@
       }
     }
 
+    .book-fixed {
+      position: fixed;
+      top: 100px;
+      right: 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 9999;/* make sure it stays on top */
+    }
+
+    .book-fixed img {
+      width: 52px;
+      height: 52px;
+      display: block;
+      border-radius: 26px;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+
+    .book-fixed a:hover img {
+      transform: translateY(-1px);
+      opacity: .5;
+    }
+
     body {
       margin: 0;
       font-family: sans-serif;
@@ -325,16 +348,25 @@
       <a href="reviews.html" target="_blank">Read More Reviews ></a>
     </div>
   </section>
+
+    <div class="book-fixed">
+    <a href="contact.html" target="_blank">
+      <img src="images/book.jpg">
+    </a>
+  </div>
+
 </main>
 
-<footer>
-  <p>Contact info (email, phone), social media links, copyright.</p>
-  <p>&copy; <span id="year"></span> Wedding Band</p>
-</footer>
 
-<script>
-  console.log("delete sidebar");
-</script>
+
+  <footer>
+    <p>Contact info (email, phone), social media links, copyright.</p>
+    <p>&copy; <span id="year"></span> Wedding Band</p>
+  </footer>
+
+  <script>
+    console.log("delete sidebar");
+  </script>
 
 </body>
 </html>
