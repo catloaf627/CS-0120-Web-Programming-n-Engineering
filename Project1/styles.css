@@ -78,63 +78,6 @@ header nav a:hover {
   display: block;
 }
 
-/* Sidebar */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -220px; /* hidden by default */
-  width: 220px;
-  height: 100%;
-  background: #1c1c1c;
-  transition: left 0.3s ease;
-  z-index: 1000;
-}
-.sidebar.open {
-  left: 0; /* slide in */
-}
-.sidebar h2 {
-  font-size: 19px;
-  margin-bottom: 16px;
-  color: #f7d9e3;
-  border-bottom: 1px solid #333;
-  padding-bottom: 8px;
-}
-.sidebar a {
-  display: block;
-  padding: 10px 12px;
-  border-radius: 6px;
-  font-family: "Inter", sans-serif;
-  color: #ddd;
-  transition: background 0.3s;
-}
-.sidebar a:hover {
-  background: #2c2c2c;
-  color: #f7d9e3;
-}
-
-/* Sidebar arrow button */
-.sidebar-icon {
-  position: absolute;
-  top: 20px;
-  right: -30px; /* stick out so it’s clickable */
-  width: 30px;
-  height: 30px;
-  background: #a84d6a;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 1100; /* above sidebar */
-  color: #fff;
-  font-size: 20px;
-}
-.sidebar.open .sidebar-icon::before {
-  content: "⮜"; /* left arrow when open */
-}
-.sidebar:not(.open) .sidebar-icon::before {
-  content: "⮞"; /* right arrow when closed */
-}
 
 /* Main Sections */
 main {

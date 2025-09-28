@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
   <title>Wedding Band Site</title>
-  
-
   <link rel="stylesheet" href="styles.css">
 
   <style>
-
     header nav a {
       font-size: 14px;   /* smaller text on mobile */
       padding: 6px 10px;
@@ -34,42 +31,6 @@
       font-family: sans-serif;
     }
 
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: -180px;
-      width: 220px;
-      height: 100%;
-      transition: left 0.3s ease;
-      padding: 16px;
-      z-index: 1000;
-    }
-    .sidebar h2 { margin-top: 0; }
-    .sidebar ul { list-style: none; padding: 0; }
-    .sidebar ul li { margin: 16px 0; }
-
-    .sidebar:hover,
-    .sidebar:focus-within,
-    .sidebar.open {
-      left: 0;
-    }
-
-    .sidebar-icon {
-      position: absolute;
-      top: 50%;
-      right: 8px;
-      transform: translateY(-50%);
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      color: #fff;
-      cursor: pointer;
-      user-select: none;
-    }
-
     header nav {
       display: flex;
       flex-wrap: wrap;
@@ -77,31 +38,33 @@
       gap: 12px;
     }
 
-    .sidebar:not(.open):not(:hover) .sidebar-icon::before { content: "\276F"; }
-    .sidebar.open .sidebar-icon::before,
-    .sidebar:hover .sidebar-icon::before { content: "\276E"; }
+    header { 
+      position: sticky; 
+      top: 0; 
+      z-index: 900; 
+    }
+    header nav { 
+      display: flex; 
+      justify-content: center; 
+      gap: 16px; 
+    }
 
-    header { position: sticky; top: 0; z-index: 900; }
-    header nav { display: flex; justify-content: center; gap: 16px; }
-
-    main { max-width: 960px; margin: 32px auto; padding: 0 16px; }
-    section { margin-bottom: 32px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    main { 
+      max-width: 960px; 
+      margin: 32px auto; 
+      padding: 0 16px; 
+    }
+    section { 
+      margin-bottom: 32px; 
+    }
+    .grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+      gap: 16px; 
+    }
   </style>
 </head>
 <body>
-  <aside class="sidebar" id="sidebar" aria-label="Site menu">
-    <div class="sidebar-icon" id="sidebarIcon" aria-hidden="true"></div>
-    <h1>Menu</h1>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#artists">Artists</a></li>
-      <li><a href="#styles">Styles</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="contact.html" target="_blank">Book Us</a></li>
-    </ul>
-  </aside>
 
 <header>
   <nav>
@@ -302,82 +265,76 @@
       </li>
 
       <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="contact.html", target="_blank">Book Us</a></li>
+      <li><a href="contact.html" target="_blank">Book Us</a></li>
     </ul>
   </nav>
-
 </header>
 
+<main>
+  <section id="home">
+    <h1>Stories Written in Music</h1>
+    <h2> 
+      Your Perfect Wedding, With the Perfect Sound.
+      <a href="contact.html" target="_blank" style="display:inline; white-space:nowrap; color:#8c5e6e; font-weight:400; text-decoration:underline; text-underline-offset:4px;"> Book now! </a>
+    </h2>
+  </section>
 
-
-  <main>
-    <section id="home">
-      <h1>Stories Written in Music</h1>
-      <h2> 
-        Your Perfect Wedding, With the Perfect Sound.
-        <a href="contact.html" target="_blank" style="display:inline; white-space:nowrap; color:#8c5e6e; font-weight:400; text-decoration:underline; text-underline-offset:4px;"> Book now! </a>
-      </h2>
-    </section>
-
-    <section id="styles">
-      <h1>Explore Styles</h1>
-      <div class="grid">
-        <div class="card" 
+  <section id="styles">
+    <h1>Explore Styles</h1>
+    <div class="grid">
+      <div class="card" 
         style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/romantic.jpg');  background-size: cover; background-position: center;  color:#fff;">
         Romantic Ballads<br><a href="#">Watch Videos ></a>
       </div>
 
-        <div class="card" 
+      <div class="card" 
         style="background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/classical.jpg'); background-size:cover; background-position:center; color:#fff;">
-          Classical & Ceremony Music<br><a href="#">Watch Videos ></a>
-        </div>
-        <div class="card" 
+        Classical & Ceremony Music<br><a href="#">Watch Videos ></a>
+      </div>
+      <div class="card" 
         style="background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/rock.jpg'); background-size:cover; background-position:center; color:#fff;">
-          Rock Classics<br><a href="#">Watch Videos ></a>
-        </div>
-        <div class="card" 
+        Rock Classics<br><a href="#">Watch Videos ></a>
+      </div>
+      <div class="card" 
         style="background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/rnb.jpg'); background-size:cover; background-position:center; color:#fff;">
-          R&B / Soul<br><a href="#">Watch Videos ></a>
-        </div>
+        R&B / Soul<br><a href="#">Watch Videos ></a>
       </div>
-      <p>
-        <a href="genre.html" target= "_blank" color:#8c5e6e; font-size: large; font-family: Cormorant Garamond, serif; font-weight:400; text-decoration:underline; text-underline-offset:4px;">
-          See All Genres >
-        </a>
+    </div>
+    <p>
+      <a href="genre.html" target="_blank" style="color:#8c5e6e; font-size: large; font-family: Cormorant Garamond, serif; font-weight:400; text-decoration:underline; text-underline-offset:4px;">
+        See All Genres >
+      </a>
+    </p>
+  </section>
+
+  <section id="portfolio">
+    <h1>Unforgettable Moments</h1>
+    <div class="card" style="background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('videos/wedding.gif'); background-size:cover; background-position:center; color:#fff;">>
+      A Glimpse of Forever<br><a href="#">See More Highlights ></a></div>
+  </section>
+
+  <section id="reviews">
+    <h1>Love Notes from Newlyweds</h1>
+    <div class="card">
+      <p style="font-style: italic; color: #ffffff; margin-bottom: 12px;">
+        “They made our wedding unforgettable — the dance floor was never empty!” — Emily & Daniel, 2024
       </p>
+      <p style="font-style: italic; color: #ffffff;">
+        “Professional, fun, and absolutely perfect for our big day.” — Sarah & James, 2023
+      </p>
+      <a href="reviews.html" target="_blank">Read More Reviews ></a>
+    </div>
+  </section>
+</main>
 
-    </section>
+<footer>
+  <p>Contact info (email, phone), social media links, copyright.</p>
+  <p>&copy; <span id="year"></span> Wedding Band</p>
+</footer>
 
-    <section id="portfolio">
-      <h1>Unforgettable Moments</h1>
-      <div class="card" style="background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('videos/wedding.gif'); background-size:cover; background-position:center; color:#fff;">>
-        A Glimpse of Forever<br><a href="#">See More Highlights ></a></div>
-    </section>
+<script>
+  console.log("delete sidebar");
+</script>
 
-    <section id="reviews">
-      <h1>Love Notes from Newlyweds</h1>
-      <div class="card">
-        <p style="font-style: italic; color: #ffffff; margin-bottom: 12px;">
-          “They made our wedding unforgettable — the dance floor was never empty!” — Emily & Daniel, 2024
-        </p>
-
-        <p style="font-style: italic; color: #ffffff;">
-          “Professional, fun, and absolutely perfect for our big day.” — Sarah & James, 2023
-        </p>
-        <a href="reviews.html" target="_blank">Read More Reviews ></a>
-      </div>
-    </section>
-  </main>
-
-
-  <footer>
-    <p>Contact info (email, phone), social media links, copyright.</p>
-    <p>&copy; <span id="year"></span> Wedding Band</p>
-  </footer>
-
-  <script>
-    console.log("navi bug fix on cellphone");
-  </script>
-  
 </body>
 </html>
