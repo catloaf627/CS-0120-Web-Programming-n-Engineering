@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS1 Q4</title>
+</head>
+<body>
+  <script>
+    // Get range start and end
+    start = prompt("Enter the starting number of the range:");
+    start = Number(start);
+
+    end = prompt("Enter the ending number of the range:");
+    end = Number(end);
+
+    sum = 0;
+    output = "";
+
+    // One loop for odds + sum
+    for (i = start; i <= end; i++) {
+      sum = sum + i;
+      if (i % 2 === 1) {
+        output = output + i + " ";
+      }
+    }
+
+    document.write("<p>Odd numbers: " + output + "</p>");
+    document.write("<p>Sum of all numbers: " + sum + "</p>");
+  </script>
+</body>
+</html>

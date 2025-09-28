@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS1 Q1</title>
+</head>
+<body>
+  <script>
+    // Name
+    firstName = prompt("Enter your first name:");
+    lastName = prompt("Enter your last name:");
+    alert("Your name is " + firstName + " " + lastName);
+
+    // Children
+    numChildren = prompt("How many children do you have?");
+    numChildren = Number(numChildren);
+    message = "";
+    if (numChildren === 0) {
+      message = "You have no children";
+    } else if (numChildren === 1) {
+      message = "You have 1 child";
+    } else {
+      message = "You have " + numChildren + " children";
+    }
+
+    document.write("<p>" + message + "</p>");
+  </script>
+</body>
+</html>

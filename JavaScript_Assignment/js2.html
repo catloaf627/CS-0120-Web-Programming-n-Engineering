@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS1 Q2</title>
+</head>
+<body>
+  <script>
+    // Fahrenheit to Celsius
+    fTemp = prompt("Enter a temperature in Fahrenheit:");
+    fTemp = Number(fTemp);
+    cTemp = (fTemp - 32) * 5 / 9;
+    alert(fTemp + "°F = " + cTemp.toFixed(2) + "°C");
+
+    // Celsius to Fahrenheit
+    cTemp2 = prompt("Enter a temperature in Celsius:");
+    cTemp2 = Number(cTemp2);
+    fTemp2 = (cTemp2 * 9 / 5) + 32;
+    alert(cTemp2 + "°C = " + fTemp2.toFixed(2) + "°F");
+  </script>
+</body>
+</html>
