@@ -25,6 +25,11 @@
     header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:24px}
     h1{font-size:2.2rem;margin:0 0 4px 0;letter-spacing:.2px}
     .contact{font-size:0.98rem;color:var(--muted)}
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
     .chip{display:inline-block;background:var(--chip);border:1px solid var(--rule);padding:6px 10px;border-radius:999px;font-size:.85rem;margin-right:8px}
     .card{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:24px;margin:14px 0;box-shadow:0 6px 22px rgba(0,0,0,.28)}
     h2{font-size:1.25rem;margin:0 0 8px 0;font-weight:700}
@@ -53,7 +58,7 @@
           <a href="mailto:chunshu.wu@pnnl.gov">chunshu.wu@pnnl.gov</a>
         </div>
       </div>
-      <div>
+      <div class="tags">
         <span class="chip">AI &amp; Dynamical Systems</span>
         <span class="chip">Graph Learning</span>
         <span class="chip">Hardware Acceleration</span>
