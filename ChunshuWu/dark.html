@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chunshu Wu — CV</title>
+  <meta name="description" content="Curriculum Vitae of Chunshu Wu" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0d10;
+      --card:#111418;
+      --text:#e8edf2;
+      --muted:#aab3bd;
+      --accent:#8bc6ff;
+      --chip:#1a2129;
+      --rule:#202833;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:960px;margin:40px auto;padding:0 20px}
+    header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:24px}
+    h1{font-size:2.2rem;margin:0 0 4px 0;letter-spacing:.2px}
+    .contact{font-size:0.98rem;color:var(--muted)}
+    .chip{display:inline-block;background:var(--chip);border:1px solid var(--rule);padding:6px 10px;border-radius:999px;font-size:.85rem;margin-right:8px}
+    .card{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:24px;margin:14px 0;box-shadow:0 6px 22px rgba(0,0,0,.28)}
+    h2{font-size:1.25rem;margin:0 0 8px 0;font-weight:700}
+    h3{font-size:1.05rem;margin:18px 0 8px 0}
+    .row{display:grid;grid-template-columns:1fr auto;gap:8px}
+    .when{color:var(--muted);font-size:.95rem;white-space:nowrap}
+    ul{margin:8px 0 0 20px;padding:0}
+    li{margin:6px 0}
+    hr{border:none;border-top:1px solid var(--rule);margin:24px 0}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media (max-width:760px){
+      .grid-2{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+      .when{white-space:normal}
+      header{align-items:flex-start}
+    }
+    footer{color:var(--muted);font-size:.9rem;margin:24px 0 60px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>CHUNSHU WU</h1>
+        <div class="contact">
+          <a href="mailto:chunshu.wu@pnnl.gov">chunshu.wu@pnnl.gov</a>
+        </div>
+      </div>
+      <div>
+        <span class="chip">AI &amp; Dynamical Systems</span>
+        <span class="chip">Graph Learning</span>
+        <span class="chip">Hardware Acceleration</span>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Education</h2>
+      <div class="row">
+        <div><strong>Boston University</strong>, PhD in Computer Engineering</div>
+        <div class="when">Sep 2018 – Aug 2023</div>
+      </div>
+      <div class="row">
+        <div><strong>Brown University</strong>, M.S. in Physics</div>
+        <div class="when">Sep 2016 – May 2018</div>
+      </div>
+      <div class="row">
+        <div><strong>Dalian University of Technology</strong>, B.S. in Applied Physics</div>
+        <div class="when">Sep 2012 – Jun 2016</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Employment</h2>
+      <div class="row">
+        <div><strong>Pacific Northwest National Laboratory</strong>, Physical &amp; Computational Sciences Division — Postdoctoral Researcher</div>
+        <div class="when">Jun 2025 – Present</div>
+      </div>
+      <div class="row">
+        <div><strong>University of Rochester</strong>, Department of Computer Engineering — Postdoctoral Researcher</div>
+        <div class="when">Sep 2023 – Jun 2025</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Research Areas, Publications &amp; Service</h2>
+
+      <h3>Dynamical Systems for AI &amp; Scientific Applications (since 2024)</h3>
+      <ul>
+        <li>Extending power of nature from binary to real-valued graph learning in real world (ICLR 2024)</li>
+        <li>DS-GL: Advancing graph learning via harnessing nature’s power within scalable dynamical systems (ISCA 2024)</li>
+        <li>Instatrain: Adaptive training via ultra-fast natural annealing within dynamical systems (ICLR 2025)</li>
+        <li>DS-TPU: Dynamical system for on-device lifelong graph learning with nonlinear node interaction (ISCA 2025)</li>
+        <li>An expressive and self-adaptive dynamical system for efficient function learning (ICML 2025)</li>
+        <li>DS-LLM: Leveraging dynamical systems to enhance both training and inference of large language models (ICLR 2025)</li>
+        <li>DS-TIDE: Harnessing dynamical systems for efficient time-independent differential equation solving (MICRO 2025)</li>
+      </ul>
+
+      <h3>Hardware Acceleration for AI (since 2019)</h3>
+      <ul>
+        <li>O3BNN: An out-of-order architecture for high-performance binarized neural network inference with fine-grained pruning (ICS 2019)</li>
+        <li>AWB-GCN: A graph convolutional network accelerator with runtime workload rebalancing (MICRO 2020)</li>
+        <li>I-GCN: A graph convolutional network accelerator with runtime locality enhancement through islandization (MICRO 2021)</li>
+        <li>Software–hardware co-design of heterogeneous SmartNIC system for recommendation models inference and training</li>
+      </ul>
+
+      <h3>Hardware Acceleration for Science (since 2019)</h3>
+      <ul>
+        <li>Fully integrated FPGA molecular dynamics simulations (SC 2019)</li>
+        <li>Upgrade of FPGA range-limited molecular dynamics to handle hundreds of processors (FCCM 2021)</li>
+        <li>Optimized mappings for symmetric range-limited molecular force calculations on FPGAs (FPL 2022)</li>
+        <li>FASDA: An FPGA-aided, scalable and distributed accelerator for range-limited molecular dynamics (SC 2023)</li>
+        <li>FPGA-accelerated range-limited molecular dynamics (TC 2024)</li>
+        <li>Long-range MD electrostatics force computation on FPGAs (TPDS 2024)</li>
+      </ul>
+
+      <h3>Other Research in Physics &amp; AI</h3>
+      <ul>
+        <li>Quasiparticle screening near a bosonic superconductor–insulator transition revealed by magnetic impurity doping (PRL 2019)</li>
+        <li>Visual Fourier prompt tuning (NeurIPS 2024)</li>
+        <li>Diff-PIC: Revolutionizing particle-in-cell nuclear fusion simulation with diffusion models (ICLR 2025)</li>
+      </ul>
+
+      <h3>Community Service</h3>
+      <ul>
+        <li>Program Committee: AAAI</li>
+        <li>Reviewer: AAAI, ICLR, ICML, NeurIPS</li>
+        <li>Reviewer: TPDS, TC, TCAD, TRETS</li>
+        <li>Reviewer: Nature Scientific Reports, Journal of Supercomputing</li>
+      </ul>
+    </section>
+
+    <section class="card grid-2">
+      <div>
+        <h2>Links</h2>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/chunshu-wu-295a44126/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://scholar.google.com/citations?user=ZawigMMAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener">Google Scholar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Keywords</h2>
+        <p class="contact">Dynamical Systems • Graph Learning • Large Language Models • On-device Learning •
+        Hardware Acceleration • FPGA • Molecular Dynamics • Scientific Computing</p>
+      </div>
+    </section>
+
+    <footer>
+      <em>Last updated: Oct 3, 2025.</em>
+    </footer>
+  </div>
+</body>
+</html>
+"""
+with open("/mnt/data/chunshu_wu_cv.html","w",encoding="utf-8") as f:
+    f.write(html)
+"/mnt/data/chunshu_wu_cv.html"
