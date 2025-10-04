@@ -28,10 +28,25 @@
     .tags {
       display: flex;
       gap: 8px;
-      flex-wrap: wrap;
+      flex-wrap: wrap; /* if screen is narrow, chips wrap to new line */
     }
-    .chip{display:inline-block;background:var(--chip);border:1px solid var(--rule);padding:6px 10px;border-radius:999px;font-size:.85rem;margin-right:8px}
-    .card{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:24px;margin:14px 0;box-shadow:0 6px 22px rgba(0,0,0,.28)}
+    .chip{
+      display:inline-block;
+      background:var(--chip);
+      border:1px solid var(--rule);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      margin-right:8px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--rule);
+      border-radius:16px;
+      padding:24px;
+      margin:14px 0;
+      box-shadow:0 6px 22px rgba(0,0,0,.28);
+    }
     h2{font-size:1.25rem;margin:0 0 8px 0;font-weight:700}
     h3{font-size:1.05rem;margin:18px 0 8px 0}
     .row{display:grid;grid-template-columns:1fr auto;gap:8px}
@@ -59,14 +74,17 @@
         </div>
       </div>
       <div class="tags">
+        <!-- Add or remove research focus "chips" here -->
         <span class="chip">AI &amp; Dynamical Systems</span>
         <span class="chip">Graph Learning</span>
         <span class="chip">Hardware Acceleration</span>
       </div>
     </header>
 
+    <!-- ==================== Education Section ==================== -->
     <section class="card">
       <h2>Education</h2>
+      <!-- Each "row" is one school entry -->
       <div class="row">
         <div><strong>Boston University</strong>, PhD in Computer Engineering</div>
         <div class="when">Sep 2018 – Aug 2023</div>
@@ -81,8 +99,10 @@
       </div>
     </section>
 
+    <!-- ==================== Employment Section ==================== -->
     <section class="card">
       <h2>Employment</h2>
+      <!-- Add more jobs by copying a "row" block -->
       <div class="row">
         <div><strong>Pacific Northwest National Laboratory</strong>, Physical &amp; Computational Sciences Division — Postdoctoral Researcher</div>
         <div class="when">Jun 2025 – Present</div>
@@ -93,11 +113,14 @@
       </div>
     </section>
 
+    <!-- ==================== Research & Publications ==================== -->
     <section class="card">
       <h2>Research Areas, Publications &amp; Service</h2>
 
+      <!-- One research category -->
       <h3>Dynamical Systems for AI &amp; Scientific Applications (since 2024)</h3>
       <ul>
+        <!-- Each <li> is one paper. To add new papers, just add another <li> line. -->
         <li>Extending power of nature from binary to real-valued graph learning in real world (ICLR 2024)</li>
         <li>DS-GL: Advancing graph learning via harnessing nature’s power within scalable dynamical systems (ISCA 2024)</li>
         <li>Instatrain: Adaptive training via ultra-fast natural annealing within dynamical systems (ICLR 2025)</li>
@@ -107,6 +130,7 @@
         <li>DS-TIDE: Harnessing dynamical systems for efficient time-independent differential equation solving (MICRO 2025)</li>
       </ul>
 
+      <!-- Another research category -->
       <h3>Hardware Acceleration for AI (since 2019)</h3>
       <ul>
         <li>O3BNN: An out-of-order architecture for high-performance binarized neural network inference with fine-grained pruning (ICS 2019)</li>
@@ -132,6 +156,7 @@
         <li>Diff-PIC: Revolutionizing particle-in-cell nuclear fusion simulation with diffusion models (ICLR 2025)</li>
       </ul>
 
+      <!-- Service -->
       <h3>Community Service</h3>
       <ul>
         <li>Program Committee: AAAI</li>
@@ -141,23 +166,28 @@
       </ul>
     </section>
 
+    <!-- ==================== Links & Keywords ==================== -->
     <section class="card grid-2">
       <div>
         <h2>Links</h2>
         <ul>
+          <!-- Add more external links here -->
           <li><a href="https://www.linkedin.com/in/chunshu-wu-295a44126/" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://scholar.google.com/citations?user=ZawigMMAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener">Google Scholar</a></li>
         </ul>
       </div>
       <div>
         <h2>Keywords</h2>
+        <!-- Just edit this text to add/remove keywords -->
         <p class="contact">Dynamical Systems • Graph Learning • Large Language Models • On-device Learning •
         Hardware Acceleration • FPGA • Molecular Dynamics • Scientific Computing</p>
       </div>
     </section>
 
+    <!-- ==================== Footer ==================== -->
     <footer>
       <em>Last updated: Oct 3, 2025.</em>
+      <!-- Change the date above whenever you update -->
     </footer>
   </div>
 </body>
