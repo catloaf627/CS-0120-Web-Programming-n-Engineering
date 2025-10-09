@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title>React Demo</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    #coolapp { border: 1pt solid #000; padding: 10px; }
+    .red {color: #EB3134}
+  </style>
+</head>
+
+<body>
+  <div id = "coolapp"> </div>
+
+  <script type = "text/babel">
+    // class
+    function Animal(name, type)
+    {
+      this.name = name
+      this.type = type
+    }
+    // component
+    function PageTitle(props)
+    {
+      return <h1 className={props.myclass} > 🌸 props 🌸 </h1>
+    }
+    // var animals = "cat dog fish birds".split(" ")
+    var animals = [new Animal("fido", "dog"), new Animal("lily", "cat"), new Animal("nemo", "fish")]
+    var title = "My title"
+    var text = "My text"
+    var app1 = 
+        <>
+          <PageTitle myclass = "red"> This is my Title </PageTitle>
+          <p> {text} </p>
+          <ul>
+            {animals.map((animal,i) => <li key ={i}>{animal.name} is a {animal.type}</li>)}
+
+          </ul>
+        </>
+    ReactDOM.render(app1, coolapp); // the app name, where to put it
+    
+  </script>
+</body>
+</html>
