@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 6</title>
+  <style>
+    #chosenStates {
+      border: 1px solid black;
+      min-height: 50px;
+      width: 200px;
+      padding: 5px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Problem 6</h2>
+
+  <select id="stateList" size="10"></select>
+  <button id="addBtn">Add State</button>
+  <div id="chosenStates"></div>
+  <button id="clearBtn">Clear States</button>
+
+  <script>
+    const states = ["Massachusetts", "New York", "California", "Washington", "Texas", "Pennsylvania", "Michigan", "Florida", "Ohio", "Illinois"];
+
+    const stateList = document.getElementById("stateList");
+    const chosenDiv = document.getElementById("chosenStates");
+
+    states.forEach((s, i) => {
+      const opt = document.createElement("option");
+      opt.textContent = s;
+      if (i === 0) opt.selected = true;
+      stateList.appendChild(opt);
+    });
+
+    document.getElementById("addBtn").onclick = function() {
+      const selected = stateList.value;
+      if (selected) {
+        chosenDiv.innerHTML += selected + "<br>";
+      }
+    };
+
+    document.getElementById("clearBtn").onclick = function() {
+      chosenDiv.innerHTML = "";
+    };
+  </script>
+</body>
+</html>

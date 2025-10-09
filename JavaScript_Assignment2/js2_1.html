@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 1</title>
+</head>
+<body>
+  <h2>Problem 1</h2>
+  <div id="answer"></div>
+
+  <script>
+    function count(arr, value) {
+      return arr.filter(num => num < value).length;
+    }
+
+    function testCount() {
+      const nums = [3, 55, 30, 28, 9, 12];
+      const value = 10;
+      const result = count(nums, value);
+      document.getElementById("answer").textContent = `Array: ${nums.join(", ")} | Value: ${value} | Count: ${result}`;
+    }
+
+    testCount();
+  </script>
+</body>
+</html>

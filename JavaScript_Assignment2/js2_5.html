@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 5</title>
+</head>
+<body>
+  <h2>Problem 5</h2>
+
+  <form>
+    <label>Enter your name: </label>
+    <input type="text" id="username"><br><br>
+
+    <input type="button" value="Hello">
+    <input type="button" value="Good Bye">
+    <input type="button" value="Greetings">
+  </form>
+
+  <div id="answer"></div>
+
+  <script>
+    function speak() { // no parameter
+      const prefix = this.value; 
+      const name = document.getElementById("username").value.trim();
+      const message = `${prefix} ${name || "Stranger"}`;
+      alert(message);
+      document.getElementById("answer").textContent = message;
+    }
+
+    window.onload = function() {
+      const buttons = document.querySelectorAll("input[type='button']");
+      buttons.forEach(btn => btn.addEventListener("click", speak));
+    };
+  </script>
+</body>
+</html>

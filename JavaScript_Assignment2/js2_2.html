@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 2</title>
+</head>
+<body>
+  <h2>Problem 2</h2>
+  <div id="answer"></div>
+
+  <script>
+    const sentence = prompt("Enter a sentence:");
+    const words = sentence.trim().split(" "); // remove the spaces at the beginning and end of a string
+    document.getElementById("answer").textContent = `The sentence has ${words.length} words.`;
+  </script>
+</body>
+</html>

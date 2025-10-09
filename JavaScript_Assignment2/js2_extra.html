@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Extra Credit</title>
+  <style>
+    #chosenStates {
+      border: 1px solid black;
+      min-height: 60px;
+      width: 220px;
+      padding: 5px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Extra Credit</h2>
+
+  <select id="stateList" size="10"></select>
+  <button id="addBtn">Add State</button>
+  <div id="chosenStates"></div>
+  <button id="clearBtn">Clear States</button>
+
+  <script>
+    const originalStates = ["Massachusetts", "New York", "California", "Washington", "Texas", "Pennsylvania", "Michigan", "Florida", "Ohio", "Illinois"];
+
+    const stateList = document.getElementById("stateList");
+    const chosenDiv = document.getElementById("chosenStates");
+    let currentStates = [...originalStates];
+    let chosenStates = [];
+
+    function renderSelect() {
+      stateList.innerHTML = "";
+      currentStates.forEach((s, i) => {
+        const opt = document.createElement("option");
+        opt.textContent = s;
+        if (i === 0) opt.selected = true;
+        stateList.appendChild(opt);
+      });
+    }
+
+    function renderChosen() {
+      if (chosenStates.length === 0) {
+        chosenDiv.innerHTML = "";
+      } else {
+        const list = chosenStates.map((s, i) => `${i + 1}. ${s}`).join("<br>");
+        chosenDiv.innerHTML = list;
+      }
+    }
+
+    document.getElementById("addBtn").onclick = function() {
+      const selected = stateList.value;
+      if (selected) {
+        chosenStates.push(selected);
+        currentStates = currentStates.filter(s => s !== selected);
+        renderSelect();
+        renderChosen();
+      }
+    };
+
+    document.getElementById("clearBtn").onclick = function() {
+      chosenStates = [];
+      currentStates = [...originalStates];
+      renderSelect();
+      renderChosen();
+    };
+
+    renderSelect();
+  </script>
+</body>
+</html>

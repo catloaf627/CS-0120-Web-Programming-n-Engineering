@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 3</title>
+</head>
+<body>
+  <h2>Problem 3</h2>
+  <div id="answer"></div>
+
+  <script>
+    const names = "Pat, Chris, Marlon, Ferncroft, Assunta";
+    const htmlList = names
+      .split(", ")
+      .map((name, i) => `<li> ${name}</li>`)
+      .join("");
+    document.getElementById("answer").innerHTML = `<ol>${htmlList}</ol>`;
+  </script>
+</body>
+</html>
