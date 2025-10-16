@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<title>React Demo</title>
+    <style type="text/css">
+        label {color: #AF1C1F; margin-right: 20px; display:inline-block;}
+    </style>
+</head>
+
+<body>
+    
+<div id='myapp'></div>
+    
+<script type='text/babel'>
+function Channel(name, channel)
+{
+    this.name = name
+    this.channel = channel
+}
+
+var options = [new Channel("Finance", "CNBC"), 
+               new Channel("Weather", "The Weather Channel"), 
+               new Channel("Sports", "ESPN")]
+
+var hello = <div>
+            <h1>Child Elements</h1>
+            <label>Where do you want to go?</label>
+            <select>
+            {options.map ((item, i) => <option key={i} value = {item.channel}>{item.name}</option>)}
+            </select>
+            </div>
+ReactDOM.render(hello, myapp);	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style type="text/css">
+        .red {color: #D83A3D;}
+        .green {color: #33C05D}
+    </style>
+<title>React Demo</title>
+</head>
+
+<body>
+    
+<div id='myapp'></div>
+    
+<script type='text/babel'>
+function PageTitle(props)
+{
+    return <h1 id="main" className={props.myclass}>{props.title}</h1>
+}
+var hello = <PageTitle title ="React Components with Props" myclass="green" />
+
+ReactDOM.render(hello, myapp);	
+</script>
+
+</body>
+</html>

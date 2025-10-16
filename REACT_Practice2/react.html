@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>React Heading Example</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="eventapp"></div>
+
+  <script type="text/babel">
+    // create a component that takes some text and a heading level (ie, h1, h2, h3)
+    function Heading(props) {
+    //   const Tag = props.type;
+      return <props.type>{props.children}</props.type>;
+    }
+
+    var app1 = (
+      <>
+        <Heading type="h2">This is an h2</Heading>
+        <Heading type="h3">This is an h3</Heading>
+      </>
+    );
+
+    ReactDOM.render(app1, eventapp);
+  </script>
+</body>
+</html>
