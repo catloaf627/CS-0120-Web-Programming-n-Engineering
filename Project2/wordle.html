@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wordle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      text-align: center;
+      margin: 40px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    #board {
+      display: grid;
+      grid-template-rows: repeat(6, 1fr);
+      gap: 5px;
+      width: 290px; /* 50*5 + 10*4 */
+      margin: 0 auto 20px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 5px;
+    }
+
+    .cell {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5em;
+      text-transform: uppercase;
+      background: white;
+    }
+
+    #controls {
+      margin-top: 20px;
+    }
+
+    #guessInput {
+      font-size: 1em;
+      padding: 6px;
+      width: 120px;
+      text-transform: uppercase;
+    }
+
+    #submitBtn, #restartBtn {
+      font-size: 1em;
+      padding: 6px 12px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+
+    #restartBtn {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Wordle</h1>
+
+  <div id="board">
+    <!-- 6 rows of 5 boxes -->
+    <script>
+      for (let i = 0; i < 6; i++) {
+        document.write('<div class="row">');
+        for (let j = 0; j < 5; j++) {
+          document.write('<div class="cell" id="cell-' + i + '-' + j + '"></div>');
+        }
+        document.write('</div>');
+      }
+    </script>
+  </div>
+
+  <div id="controls">
+    <input type="text" id="guessInput" maxlength="5" placeholder="Your guess">
+    <button id="submitBtn">Guess</button>
+    <button id="restartBtn">Restart</button>
+  </div>
+
+  <div id="message"></div>
+
+  <script>
+    // a placeholder
+    document.getElementById('submitBtn').onclick = () => {
+      const guess = document.getElementById('guessInput').value.trim();
+      if (guess.length !== 5) {
+        alert("Word must be 5 letters!");
+        return;
+      }
+    };
+  </script>
+</body>
+</html>
