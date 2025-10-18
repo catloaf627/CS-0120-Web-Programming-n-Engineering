@@ -64,6 +64,7 @@
     #restartBtn {
       display: none;
     }
+    
     #keyboard {
       margin-top: 20px;
     }
@@ -140,6 +141,28 @@
   <div id="message"></div>
 
   <script>
+    // Randomly pick an answer
+    const words = [
+      "ARRAY", "LOGIC", "STACK", "QUEUE", "INPUT", "TOKEN", "CACHE", "BUGGY", "SPACE", "BYTES", 
+      "INDEX", "CLASS", "FLOAT", "LOGIN", "LEARN", "FILES", "STUDY", "RECUR", "QUERY", "PROTO", 
+      "BASIC", "VIRUS", "CLOUD", "ROBOT", "PIXEL", "ALERT", "DEBUG", "FRAME", "PATCH", "BRAIN"
+    ];
+    let answer = words[Math.floor(Math.random() * words.length)];
+    console.log("Answer:", answer);
+
+    // Restart button logic (change answer & clear board)
+    document.getElementById("restartBtn").addEventListener("click", () => {
+      answer = words[Math.floor(Math.random() * words.length)];
+      console.log("Answer:", answer);
+      document.getElementById("guessInput").value = "";
+      document.getElementById("message").textContent = "";
+      document.querySelectorAll(".cell").forEach(cell => {
+        cell.textContent = "";
+        cell.style.background = "white";
+      });
+      document.getElementById("restartBtn").style.display = "none";
+    });
+
     // Input
     document.getElementById('submitBtn').onclick = () => {
       const guess = document.getElementById('guessInput').value.trim();
