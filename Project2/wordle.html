@@ -81,6 +81,20 @@
       text-transform: uppercase;
       cursor: pointer;
     }
+    #deleteBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      width: 40px;
+      height: 40px;
+    }
+    
+    #deleteBtn img {
+      display: block;
+      height: 15px;
+    }
+
 
   </style>
 </head>
@@ -116,7 +130,9 @@
       <button>H</button><button>J</button><button>K</button><button>L</button>
     </div>
     <div class="kb-row">
+      <button>Enter</button>
       <button>Z</button><button>X</button><button>C</button><button>V</button><button>B</button><button>N</button><button>M</button>
+      <button id="deleteBtn"><img src="backspace.png" alt="Delete" style="height:15px;"></button>
     </div>
   </div>
 
@@ -136,11 +152,24 @@
     document.querySelectorAll("#keyboard button").forEach(btn => {
       btn.addEventListener("click", () => {
         const input = document.getElementById("guessInput");
-        if (input.value.length < 5) {
-          input.value += btn.textContent;
+        const key = btn.textContent;
+
+        if (key === "Enter") {
+          document.getElementById("submitBtn").click();
+          return;
+        }
+
+        if (btn.id == "deleteBtn") {
+          input.value = input.value.slice(0, -1);
+          return;
+        }
+
+        if (input.value.length < 5 && key.length === 1) {
+          input.value += key;
         }
       });
     });
+
 
   </script>
 </body>
