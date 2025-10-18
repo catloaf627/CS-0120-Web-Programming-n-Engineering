@@ -156,9 +156,13 @@
       console.log("Answer:", answer);
       document.getElementById("guessInput").value = "";
       document.getElementById("message").textContent = "";
-      document.querySelectorAll(".cell").forEach(cell => {
+      document.querySelectorAll(".cell").forEach(cell => { // clear board
         cell.textContent = "";
         cell.style.background = "white";
+      });
+      document.querySelectorAll("#keyboard button").forEach(btn => { // clear keyboard
+        btn.style.background = "";
+        btn.style.color = "";
       });
       document.getElementById("restartBtn").style.display = "none";
       document.getElementById("submitBtn").style.display = "inline-block";
@@ -199,11 +203,16 @@
         const letter = guess[i];
         if (letter === answer[i]) {
           cell.style.background = "green";
+          document.querySelectorAll("#keyboard button").forEach(btn => { if (btn.textContent === letter)  btn.style.background = "green"; });
           numCorrectLetters++;
         } else if (answer.includes(letter)) {
           cell.style.background = "yellow";
+          document.querySelectorAll("#keyboard button").forEach(btn => { if (btn.textContent === letter)  btn.style.background = "yellow"; });
+
         } else {
-          cell.style.background = "lightgray";
+          cell.style.background = "gray";
+          document.querySelectorAll("#keyboard button").forEach(btn => { if (btn.textContent === letter)  btn.style.background = "gray"; });
+
         }
       }
       // Game over
