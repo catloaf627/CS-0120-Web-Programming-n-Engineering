@@ -17,6 +17,29 @@
       margin-bottom: 20px;
     }
 
+    #title {
+      font-size: 2.5em;
+      font-weight: bold;
+      letter-spacing: 6px;
+    }
+
+    #title span {
+      -webkit-text-stroke: 1px black;
+    }
+    .gray {
+      color: gray;
+    }
+
+    .green {
+      color: green;
+    }
+
+    .yellow {
+      color: yellow;
+    }
+
+
+
     #board {
       display: grid;
       grid-template-rows: repeat(6, 1fr);
@@ -52,6 +75,16 @@
       padding: 6px;
       width: 120px;
       text-transform: uppercase;
+      background-color: #d9fdd3;
+      border: 2px solid #6aaa64;
+      color: #2e2e2e;
+      border-radius: 4px;
+    }
+
+    #guessInput:focus {
+      outline: none;
+      border-color: #4e9a46;
+      background-color: #c9f7be;
     }
 
     #submitBtn, #restartBtn {
@@ -59,6 +92,10 @@
       padding: 6px 12px;
       margin-left: 5px;
       cursor: pointer;
+      background-color: #fff8b3;
+      border: 1px solid #e0d47a;
+      color: #333;
+      border-radius: 6px;
     }
 
     #restartBtn {
@@ -68,6 +105,21 @@
     #keyboard {
       margin-top: 20px;
     }
+
+    #enterBtn,
+    #deleteBtn {
+      background-color: gray;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 12px;
+    }
+
+    #enterBtn:hover,
+    #deleteBtn:hover {
+      background-color: #555555;
+    }
+
 
     .kb-row {
       display: flex;
@@ -82,25 +134,20 @@
       text-transform: uppercase;
       cursor: pointer;
     }
-    #deleteBtn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-      width: 40px;
-      height: 40px;
-    }
-    
-    #deleteBtn img {
-      display: block;
-      height: 15px;
-    }
+
 
 
   </style>
 </head>
 <body>
-  <h1>Wordle</h1>
+  <h1 id="title">
+    <span class="gray">W</span>
+    <span class="green">O</span>
+    <span class="yellow">R</span>
+    <span class="gray">D</span>
+    <span class="green">L</span>
+    <span class="yellow">E</span>
+  </h1>
 
   <div id="board">
     <!-- 6 rows of 5 boxes -->
@@ -131,9 +178,9 @@
       <button>H</button><button>J</button><button>K</button><button>L</button>
     </div>
     <div class="kb-row">
-      <button>Enter</button>
+      <button id="enterBtn">Enter</button>
       <button>Z</button><button>X</button><button>C</button><button>V</button><button>B</button><button>N</button><button>M</button>
-      <button id="deleteBtn"><img src="backspace.png" alt="Delete" style="height:15px;"></button>
+      <button id="deleteBtn">⬅</button>
     </div>
   </div>
 
@@ -173,7 +220,7 @@
       btn.addEventListener("click", () => {
         const input = document.getElementById("guessInput");
         const key = btn.textContent;
-        if (key === "Enter") {
+        if (btn.id == "enterBtn") {
           document.getElementById("submitBtn").click();
           return;
         }
