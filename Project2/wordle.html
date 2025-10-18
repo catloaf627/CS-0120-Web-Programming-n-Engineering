@@ -185,7 +185,7 @@
     let currentRow = 0;
     document.getElementById('submitBtn').onclick = () => {
       // Length error
-      const guess = document.getElementById('guessInput').value.trim();
+      const guess = document.getElementById('guessInput').value.trim().toUpperCase();
       if (guess.length !== 5) {
         alert("Word must be 5 letters!");
         return;
