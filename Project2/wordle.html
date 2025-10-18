@@ -124,7 +124,7 @@
   <div id="message"></div>
 
   <script>
-    // a placeholder
+    // Input
     document.getElementById('submitBtn').onclick = () => {
       const guess = document.getElementById('guessInput').value.trim();
       if (guess.length !== 5) {
@@ -132,6 +132,16 @@
         return;
       }
     };
+    // Make on-screen keyboard buttons type into the input
+    document.querySelectorAll("#keyboard button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const input = document.getElementById("guessInput");
+        if (input.value.length < 5) {
+          input.value += btn.textContent;
+        }
+      });
+    });
+
   </script>
 </body>
 </html>
