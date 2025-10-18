@@ -63,6 +63,24 @@
     #restartBtn {
       display: none;
     }
+    #keyboard {
+      margin-top: 20px;
+    }
+
+    .kb-row {
+      display: flex;
+      justify-content: center;
+      margin: 4px 0;
+    }
+
+    .kb-row button {
+      margin: 2px;
+      padding: 8px 10px;
+      font-size: 1em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 <body>
@@ -86,6 +104,21 @@
     <button id="submitBtn">Guess</button>
     <button id="restartBtn">Restart</button>
   </div>
+
+  <div id="keyboard">
+    <div class="kb-row">
+      <button>A</button><button>B</button><button>C</button><button>D</button><button>E</button>
+      <button>F</button><button>G</button><button>H</button><button>I</button><button>J</button>
+    </div>
+    <div class="kb-row">
+      <button>K</button><button>L</button><button>M</button><button>N</button><button>O</button>
+      <button>P</button><button>Q</button><button>R</button><button>S</button><button>T</button>
+    </div>
+    <div class="kb-row">
+      <button>U</button><button>V</button><button>W</button><button>X</button><button>Y</button><button>Z</button>
+    </div>
+  </div>
+
 
   <div id="message"></div>
 
