@@ -163,35 +163,50 @@
       document.getElementById("restartBtn").style.display = "none";
     });
 
-    // Input
-    document.getElementById('submitBtn').onclick = () => {
-      const guess = document.getElementById('guessInput').value.trim();
-      if (guess.length !== 5) {
-        alert("Word must be 5 letters!");
-        return;
-      }
-    };
     // Make on-screen keyboard buttons type into the input
     document.querySelectorAll("#keyboard button").forEach(btn => {
       btn.addEventListener("click", () => {
         const input = document.getElementById("guessInput");
         const key = btn.textContent;
-
         if (key === "Enter") {
           document.getElementById("submitBtn").click();
           return;
         }
-
         if (btn.id == "deleteBtn") {
           input.value = input.value.slice(0, -1);
           return;
         }
-
         if (input.value.length < 5 && key.length === 1) {
           input.value += key;
         }
       });
     });
+    // MAIN LOGIC HERE
+    let currentRow = 0;
+    document.getElementById('submitBtn').onclick = () => {
+      // Length error
+      const guess = document.getElementById('guessInput').value.trim();
+      if (guess.length !== 5) {
+        alert("Word must be 5 letters!");
+        return;
+      }
+      // Show your guess on board (with color)
+      for (let i = 0; i < 5; i++) {
+        const cell = document.getElementById(`cell-${currentRow}-${i}`);
+        cell.textContent = guess[i];
+        const letter = guess[i];
+        if (letter === answer[i]) {
+          cell.style.background = "green";
+        } else if (answer.includes(letter)) {
+          cell.style.background = "yellow";
+        } else {
+          cell.style.background = "lightgray";
+        }
+      }
+      currentRow++;
+      // Clear input box
+      document.getElementById('guessInput').value = "";
+    };
 
 
   </script>
