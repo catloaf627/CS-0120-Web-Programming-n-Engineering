@@ -191,20 +191,34 @@
         return;
       }
       // Show your guess on board (with color)
+      let numCorrectLetters = 0;
       for (let i = 0; i < 5; i++) {
         const cell = document.getElementById(`cell-${currentRow}-${i}`);
         cell.textContent = guess[i];
         const letter = guess[i];
         if (letter === answer[i]) {
           cell.style.background = "green";
+          numCorrectLetters++;
         } else if (answer.includes(letter)) {
           cell.style.background = "yellow";
         } else {
           cell.style.background = "lightgray";
         }
       }
+      // Game over
+      if (numCorrectLetters == 5) { // SUCCESS!
+        currentRow = 0;
+        document.getElementById("restartBtn").style.display = "inline-block";
+        return;
+      }
+      if (currentRow == 5) { // FAIL!
+        currentRow = 0;
+        document.getElementById("restartBtn").style.display = "inline-block";
+        return;
+      }
+      
+      // Game NOT over
       currentRow++;
-      // Clear input box
       document.getElementById('guessInput').value = "";
     };
 
