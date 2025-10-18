@@ -116,7 +116,7 @@
   </div>
 
   <div id="controls">
-    <input type="text" id="guessInput" maxlength="5" placeholder="Your guess">
+    <input type="text" id="guessInput" placeholder="Your guess">
     <button id="submitBtn">Guess</button>
     <button id="restartBtn">Restart</button>
   </div>
@@ -161,6 +161,7 @@
         cell.style.background = "white";
       });
       document.getElementById("restartBtn").style.display = "none";
+      document.getElementById("submitBtn").style.display = "inline-block";
     });
 
     // Make on-screen keyboard buttons type into the input
@@ -208,11 +209,13 @@
       // Game over
       if (numCorrectLetters == 5) { // SUCCESS!
         currentRow = 0;
+        document.getElementById("submitBtn").style.display = "none";
         document.getElementById("restartBtn").style.display = "inline-block";
         return;
       }
       if (currentRow == 5) { // FAIL!
         currentRow = 0;
+        document.getElementById("submitBtn").style.display = "none";
         document.getElementById("restartBtn").style.display = "inline-block";
         return;
       }
