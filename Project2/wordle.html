@@ -211,12 +211,14 @@
         currentRow = 0;
         document.getElementById("submitBtn").style.display = "none";
         document.getElementById("restartBtn").style.display = "inline-block";
+        alert("✅✅✅  '" + answer + "'  ✅✅✅");
         return;
       }
       if (currentRow == 5) { // FAIL!
         currentRow = 0;
         document.getElementById("submitBtn").style.display = "none";
         document.getElementById("restartBtn").style.display = "inline-block";
+        alert("❌❌❌  '" + answer + "'  ❌❌❌");
         return;
       }
       
