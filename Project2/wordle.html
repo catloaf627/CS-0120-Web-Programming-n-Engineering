@@ -225,6 +225,43 @@
 
   <script>
 
+    /*********************************** CLASSES ***********************************/
+
+    class WordleStats {
+      constructor() {
+        this.wins = parseInt(getCookie('wordleWins') || '0', 10);
+        this.totalGuesses = parseInt(getCookie('wordleGuessTotal') || '0', 10);
+        this.render();
+      }
+
+      addGame(guessCount) {
+        this.wins += 1;
+        this.totalGuesses += guessCount;
+        setCookie('wordleWins', this.wins);
+        setCookie('wordleGuessTotal', this.totalGuesses);
+        this.render();
+      }
+
+      clear() {
+        this.wins = 0;
+        this.totalGuesses = 0;
+        setCookie('wordleWins', '', -1);
+        setCookie('wordleGuessTotal', '', -1);
+        this.render();
+      }
+
+      render() {
+        const avg = this.wins > 0 ? (this.totalGuesses / this.wins).toFixed(2) : '—';
+        document.getElementById('avgGuesses').textContent = avg;
+      }
+    }
+
+    const stats = new WordleStats();
+
+
+
+
+
     /*********************************** FUNCTIONS ***********************************/
 
     // Generate an answer
@@ -272,39 +309,22 @@
       const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
       const cookieStr = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
       document.cookie = cookieStr;
-      // console.log("=== setCookie() called ===");
-      // console.log("document.cookie now:", document.cookie);
-      // console.log("==========================");
     }
 
     function getCookie(name) {
-      // console.log("=== getCookie() called ===");
-      // console.log("current cookies:", document.cookie);
-      // console.log("==========================");
       const regex = new RegExp('(?:^|; )' + name.replace(/[-.$?*|{}()[\]\\/+^]/g, '\\$&') + '=([^;]*)');
       const match = document.cookie.match(regex);
       const value = match ? decodeURIComponent(match[1]) : null;
       return value;
     }
 
-
-
-    function renderAverage() {
-      let wins = parseInt(getCookie('wordleWins') || '0', 10);
-      let totalGuesses = parseInt(getCookie('wordleGuessTotal') || '0', 10);
-      const avg = wins > 0 ? (totalGuesses / wins).toFixed(2) : '—';
-      document.getElementById('avgGuesses').textContent = avg;
-    }
-
-
-    renderAverage();
     pickAnswer(); // Generate an answer after the page is loaded (with out hitting the restartBtn!)
 
 
 
 
 
-    
+
     /*********************************** ACTIONS ***********************************/
 
     // Click api-switch
@@ -341,14 +361,8 @@
 
     // Clear cookie button
     document.getElementById("clearStatsBtn").addEventListener("click", () => {
-      setCookie('wordleWins', '', -1);       // set expired cookie
-      setCookie('wordleGuessTotal', '', -1); // set expired cookie
-      wins = 0;
-      totalGuesses = 0;
-      renderAverage();
-      console.log("✅ Stats cleared (cookies and variables).");
+      stats.clear();
     });
-
 
     // MAIN LOGIC HERE (click submit)
     let currentRow = 0;
@@ -380,11 +394,7 @@
       }
       // Game over
       if (numCorrectLetters == 5) { // SUCCESS!
-        let wins = parseInt(getCookie('wordleWins') || '0', 10);
-        let totalGuesses = parseInt(getCookie('wordleGuessTotal') || '0', 10);
-        setCookie('wordleWins', String(wins + 1));
-        setCookie('wordleGuessTotal', String(totalGuesses + currentRow + 1));
-        renderAverage();
+        stats.addGame(currentRow + 1);
         currentRow = 0;
         document.getElementById("guessInput").style.display = "none";
         document.getElementById("submitBtn").style.display = "none";
