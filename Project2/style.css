@@ -1,0 +1,131 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fafafa;
+  text-align: center;
+  margin: 40px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+#title {
+  font-size: 2.5em;
+  font-weight: bold;
+  letter-spacing: 6px;
+}
+
+#title span {
+  -webkit-text-stroke: 1px black;
+}
+.gray { color: gray; }
+.green { color: green; }
+.yellow { color: yellow; }
+
+#modeToggle {
+  margin-bottom: 15px;
+  font-size: 0.9em;
+}
+
+#modeToggle input {
+  transform: scale(1.2);
+  margin-right: 6px;
+}
+
+#clearStatsBtn {
+  margin-left: 10px;
+  padding: 4px 10px;
+  font-size: 0.9em;
+  cursor: pointer;
+  background-color: #ffdddd;
+  border: 1px solid #cc9999;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+#clearStatsBtn:hover { background-color: #ffbbbb; }
+
+#board {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 5px;
+  width: 290px;
+  margin: 0 auto 20px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  background: white;
+}
+
+#controls { margin-top: 20px; }
+
+#guessInput {
+  font-size: 1em;
+  padding: 6px;
+  width: 120px;
+  text-transform: uppercase;
+  background-color: #d9fdd3;
+  border: 2px solid #6aaa64;
+  color: #2e2e2e;
+  border-radius: 4px;
+}
+
+#guessInput:focus {
+  outline: none;
+  border-color: #4e9a46;
+  background-color: #c9f7be;
+}
+
+#submitBtn, #restartBtn {
+  font-size: 1em;
+  padding: 6px 12px;
+  margin-left: 5px;
+  cursor: pointer;
+  background-color: #fff8b3;
+  border: 1px solid #e0d47a;
+  color: #333;
+  border-radius: 6px;
+}
+
+#restartBtn { display: none; }
+
+#keyboard { margin-top: 20px; }
+
+#enterBtn, #deleteBtn {
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+#enterBtn:hover, #deleteBtn:hover { background-color: #555; }
+
+.kb-row {
+  display: flex;
+  justify-content: center;
+  margin: 4px 0;
+}
+
+.kb-row button {
+  margin: 2px;
+  padding: 8px 10px;
+  font-size: 1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}

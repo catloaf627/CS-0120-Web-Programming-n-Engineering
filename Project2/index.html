@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.6">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Wordle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 id="title">
+    <span class="gray">W</span>
+    <span class="green">O</span>
+    <span class="yellow">R</span>
+    <span class="gray">D</span>
+    <span class="green">L</span>
+    <span class="yellow">E</span>
+  </h1>
+
+  <div id="modeToggle">
+    <label>
+      <input type="checkbox" id="apiSwitch">
+      Use API for random word
+    </label>
+  </div>
+
+  <div id="stats">
+    Average guesses: <span id="avgGuesses">—</span>
+    <button id="clearStatsBtn">Clear Stats</button>
+  </div>
+
+  <div id="board"></div>
+
+  <div id="controls">
+    <input type="text" id="guessInput" placeholder="Your guess">
+    <button id="submitBtn">Guess</button>
+    <button id="restartBtn">Restart</button>
+  </div>
+
+  <div id="keyboard">
+    <div class="kb-row">
+      <button>Q</button><button>W</button><button>E</button><button>R</button><button>T</button>
+      <button>Y</button><button>U</button><button>I</button><button>O</button><button>P</button>
+    </div>
+    <div class="kb-row">
+      <button>A</button><button>S</button><button>D</button><button>F</button><button>G</button>
+      <button>H</button><button>J</button><button>K</button><button>L</button>
+    </div>
+    <div class="kb-row">
+      <button id="enterBtn">Enter</button>
+      <button>Z</button><button>X</button><button>C</button><button>V</button><button>B</button><button>N</button><button>M</button>
+      <button id="deleteBtn">⬅</button>
+    </div>
+  </div>
+
+  <div id="message"></div>
+  <script src="script.js"></script>
+</body>
+</html>
