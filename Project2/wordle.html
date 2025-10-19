@@ -43,10 +43,27 @@
       margin-bottom: 15px;
       font-size: 0.9em;
     }
+
     #modeToggle input {
       transform: scale(1.2);
       margin-right: 6px;
     }
+
+    #clearStatsBtn {
+      margin-left: 10px;
+      padding: 4px 10px;
+      font-size: 0.9em;
+      cursor: pointer;
+      background-color: #ffdddd;
+      border: 1px solid #cc9999;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+
+    #clearStatsBtn:hover {
+      background-color: #ffbbbb;
+    }
+
 
     #board {
       display: grid;
@@ -164,6 +181,11 @@
     </label>
   </div>
 
+  <div id="stats">
+    Average guesses: <span id="avgGuesses">—</span>
+    <button id="clearStatsBtn">Clear Stats</button>
+  </div>
+
   <div id="board">
     <script>
       for (let i = 0; i < 6; i++) {
@@ -217,13 +239,13 @@
           "BASIC", "VIRUS", "CLOUD", "ROBOT", "PIXEL", "ALERT", "DEBUG", "FRAME", "PATCH", "BRAIN"
         ];
         answer = words[Math.floor(Math.random() * words.length)];
-        console.log("Answer from Array:", answer);
+        console.log("🌸Answer from Array:", answer);
       } else {
         fetch("https://random-word-api.herokuapp.com/word?length=5")
         .then(res => res.json())
         .then(data => {
           answer = data[0].toUpperCase();
-          console.log("Answer from API:", answer);
+          console.log("🌸Answer from API:", answer);
         });
       }
     }
@@ -244,10 +266,45 @@
       document.getElementById("submitBtn").style.display = "inline-block";
     }
 
-    /*********************************** ACTIONS ***********************************/
+    // Cookies
+    function setCookie(name, value, days = 365) {
+      const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+      const cookieStr = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+      document.cookie = cookieStr;
+      console.log("=== setCookie() called ===");
+      console.log("document.cookie now:", document.cookie);
+      console.log("==========================");
+    }
+
+    function getCookie(name) {
+      console.log("=== getCookie() called ===");
+      console.log("current cookies:", document.cookie);
+      console.log("==========================");
+      const regex = new RegExp('(?:^|; )' + name.replace(/[-.$?*|{}()[\]\\/+^]/g, '\\$&') + '=([^;]*)');
+      const match = document.cookie.match(regex);
+      const value = match ? decodeURIComponent(match[1]) : null;
+      return value;
+    }
 
 
+
+    function renderAverage() {
+      let wins = parseInt(getCookie('wordleWins') || '0', 10);
+      let totalGuesses = parseInt(getCookie('wordleGuessTotal') || '0', 10);
+      const avg = wins > 0 ? (totalGuesses / wins).toFixed(2) : '—';
+      document.getElementById('avgGuesses').textContent = avg;
+    }
+
+
+    renderAverage();
     pickAnswer(); // Generate an answer after the page is loaded (with out hitting the restartBtn!)
+
+
+
+
+
+    
+    /*********************************** ACTIONS ***********************************/
 
     // Click api-switch
     document.getElementById("apiSwitch").addEventListener("change", (e) => {
@@ -281,6 +338,17 @@
       });
     });
 
+    // Clear cookie button
+    document.getElementById("clearStatsBtn").addEventListener("click", () => {
+      setCookie('wordleWins', '', -1);       // set expired cookie
+      setCookie('wordleGuessTotal', '', -1); // set expired cookie
+      wins = 0;
+      totalGuesses = 0;
+      renderAverage();
+      console.log("✅ Stats cleared (cookies and variables).");
+    });
+
+
     // MAIN LOGIC HERE (click submit)
     let currentRow = 0;
     document.getElementById('submitBtn').onclick = () => {
@@ -311,6 +379,11 @@
       }
       // Game over
       if (numCorrectLetters == 5) { // SUCCESS!
+        let wins = parseInt(getCookie('wordleWins') || '0', 10);
+        let totalGuesses = parseInt(getCookie('wordleGuessTotal') || '0', 10);
+        setCookie('wordleWins', String(wins + 1));
+        setCookie('wordleGuessTotal', String(totalGuesses + currentRow + 1));
+        renderAverage();
         currentRow = 0;
         document.getElementById("submitBtn").style.display = "none";
         document.getElementById("restartBtn").style.display = "inline-block";
