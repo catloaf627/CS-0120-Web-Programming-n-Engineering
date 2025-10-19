@@ -264,6 +264,7 @@
       });
       document.getElementById("restartBtn").style.display = "none"; // switch button
       document.getElementById("submitBtn").style.display = "inline-block";
+      document.getElementById("guessInput").style.display = "inline-block";
     }
 
     // Cookies
@@ -271,15 +272,15 @@
       const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
       const cookieStr = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
       document.cookie = cookieStr;
-      console.log("=== setCookie() called ===");
-      console.log("document.cookie now:", document.cookie);
-      console.log("==========================");
+      // console.log("=== setCookie() called ===");
+      // console.log("document.cookie now:", document.cookie);
+      // console.log("==========================");
     }
 
     function getCookie(name) {
-      console.log("=== getCookie() called ===");
-      console.log("current cookies:", document.cookie);
-      console.log("==========================");
+      // console.log("=== getCookie() called ===");
+      // console.log("current cookies:", document.cookie);
+      // console.log("==========================");
       const regex = new RegExp('(?:^|; )' + name.replace(/[-.$?*|{}()[\]\\/+^]/g, '\\$&') + '=([^;]*)');
       const match = document.cookie.match(regex);
       const value = match ? decodeURIComponent(match[1]) : null;
@@ -385,6 +386,7 @@
         setCookie('wordleGuessTotal', String(totalGuesses + currentRow + 1));
         renderAverage();
         currentRow = 0;
+        document.getElementById("guessInput").style.display = "none";
         document.getElementById("submitBtn").style.display = "none";
         document.getElementById("restartBtn").style.display = "inline-block";
         // alert("✅✅✅  '" + answer + "'  ✅✅✅");
@@ -393,6 +395,7 @@
       }
       if (currentRow == 5) { // FAIL!
         currentRow = 0;
+        document.getElementById("guessInput").style.display = "none";
         document.getElementById("submitBtn").style.display = "none";
         document.getElementById("restartBtn").style.display = "inline-block";
         // alert("❌❌❌  '" + answer + "'  ❌❌❌");
