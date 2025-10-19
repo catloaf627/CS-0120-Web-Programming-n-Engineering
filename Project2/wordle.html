@@ -39,7 +39,14 @@
       color: yellow;
     }
 
-
+    #modeToggle {
+      margin-bottom: 15px;
+      font-size: 0.9em;
+    }
+    #modeToggle input {
+      transform: scale(1.2);
+      margin-right: 6px;
+    }
 
     #board {
       display: grid;
@@ -150,6 +157,13 @@
     <span class="yellow">E</span>
   </h1>
 
+  <div id="modeToggle">
+    <label>
+      <input type="checkbox" id="apiSwitch">
+      Use API for random word
+    </label>
+  </div>
+
   <div id="board">
     <!-- 6 rows of 5 boxes -->
     <script>
@@ -189,19 +203,32 @@
   <div id="message"></div>
 
   <script>
-    // Randomly pick an answer
-    const words = [
-      "ARRAY", "LOGIC", "STACK", "QUEUE", "INPUT", "TOKEN", "CACHE", "BUGGY", "SPACE", "BYTES", 
-      "INDEX", "CLASS", "FLOAT", "LOGIN", "LEARN", "FILES", "STUDY", "RECUR", "QUERY", "PROTO", 
-      "BASIC", "VIRUS", "CLOUD", "ROBOT", "PIXEL", "ALERT", "DEBUG", "FRAME", "PATCH", "BRAIN"
-    ];
-    let answer = words[Math.floor(Math.random() * words.length)];
-    console.log("Answer:", answer);
 
-    // Restart button logic (change answer & clear board)
-    document.getElementById("restartBtn").addEventListener("click", () => {
-      answer = words[Math.floor(Math.random() * words.length)];
-      console.log("Answer:", answer);
+    // Generate an answer
+    let useAPI = false;
+    let answer = "";
+
+    function pickAnswer() {
+      if (!useAPI) {
+        const words = [
+          "ARRAY", "LOGIC", "STACK", "QUEUE", "INPUT", "TOKEN", "CACHE", "BUGGY", "SPACE", "BYTES", 
+          "INDEX", "CLASS", "FLOAT", "LOGIN", "LEARN", "FILES", "STUDY", "RECUR", "QUERY", "PROTO", 
+          "BASIC", "VIRUS", "CLOUD", "ROBOT", "PIXEL", "ALERT", "DEBUG", "FRAME", "PATCH", "BRAIN"
+        ];
+        answer = words[Math.floor(Math.random() * words.length)];
+        console.log("Answer from Array:", answer);
+      } else {
+        fetch("https://random-word-api.herokuapp.com/word?length=5")
+        .then(res => res.json())
+        .then(data => {
+          answer = data[0].toUpperCase();
+          console.log("Answer from API:", answer);
+        });
+      }
+    }
+
+    // After generate a new answer, clear board and keyboard, switch (restartBtn) back to sumbitBtn
+    function clearEverything() {
       document.getElementById("guessInput").value = "";
       document.getElementById("message").textContent = "";
       document.querySelectorAll(".cell").forEach(cell => { // clear board
@@ -212,8 +239,23 @@
         btn.style.background = "";
         btn.style.color = "";
       });
-      document.getElementById("restartBtn").style.display = "none";
+      document.getElementById("restartBtn").style.display = "none"; // switch button
       document.getElementById("submitBtn").style.display = "inline-block";
+    }
+
+    pickAnswer(); // Generate an answer after the page is loaded (with out hitting the restartBtn!)
+
+    // Click api-switch
+    document.getElementById("apiSwitch").addEventListener("change", (e) => {
+      useAPI = e.target.checked;
+      pickAnswer();
+      clearEverything();
+    });
+
+    // Restart button logic (change answer & clear board)
+    document.getElementById("restartBtn").addEventListener("click", () => {
+      pickAnswer();
+      clearEverything();
     });
 
     // Make on-screen keyboard buttons type into the input
@@ -234,6 +276,7 @@
         }
       });
     });
+
     // MAIN LOGIC HERE
     let currentRow = 0;
     document.getElementById('submitBtn').onclick = () => {
@@ -260,7 +303,6 @@
         } else {
           cell.style.background = "gray";
           document.querySelectorAll("#keyboard button").forEach(btn => { if (btn.textContent === letter)  btn.style.background = "gray"; });
-
         }
       }
       // Game over
@@ -268,18 +310,20 @@
         currentRow = 0;
         document.getElementById("submitBtn").style.display = "none";
         document.getElementById("restartBtn").style.display = "inline-block";
-        alert("✅✅✅  '" + answer + "'  ✅✅✅");
+        // alert("✅✅✅  '" + answer + "'  ✅✅✅");
+        setTimeout(() => { alert("✅✅✅  '" + answer + "'  ✅✅✅"); }, 100); // wait for the board and the keyboard to update.
         return;
       }
       if (currentRow == 5) { // FAIL!
         currentRow = 0;
         document.getElementById("submitBtn").style.display = "none";
         document.getElementById("restartBtn").style.display = "inline-block";
-        alert("❌❌❌  '" + answer + "'  ❌❌❌");
+        // alert("❌❌❌  '" + answer + "'  ❌❌❌");
+        setTimeout(() => { alert("❌❌❌  '" + answer + "'  ❌❌❌"); }, 100); // wait for the board and the keyboard to update.
         return;
       }
-      
-      // Game NOT over
+
+      // Game NOT over, continue to next line
       currentRow++;
       document.getElementById('guessInput').value = "";
     };
