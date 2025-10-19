@@ -165,7 +165,6 @@
   </div>
 
   <div id="board">
-    <!-- 6 rows of 5 boxes -->
     <script>
       for (let i = 0; i < 6; i++) {
         document.write('<div class="row">');
@@ -204,6 +203,8 @@
 
   <script>
 
+    /*********************************** FUNCTIONS ***********************************/
+
     // Generate an answer
     let useAPI = false;
     let answer = "";
@@ -227,7 +228,7 @@
       }
     }
 
-    // After generate a new answer, clear board and keyboard, switch (restartBtn) back to sumbitBtn
+    // Clear board and keyboard, switch (restartBtn) back to sumbitBtn
     function clearEverything() {
       document.getElementById("guessInput").value = "";
       document.getElementById("message").textContent = "";
@@ -242,6 +243,9 @@
       document.getElementById("restartBtn").style.display = "none"; // switch button
       document.getElementById("submitBtn").style.display = "inline-block";
     }
+
+    /*********************************** ACTIONS ***********************************/
+
 
     pickAnswer(); // Generate an answer after the page is loaded (with out hitting the restartBtn!)
 
@@ -277,7 +281,7 @@
       });
     });
 
-    // MAIN LOGIC HERE
+    // MAIN LOGIC HERE (click submit)
     let currentRow = 0;
     document.getElementById('submitBtn').onclick = () => {
       // Length error
