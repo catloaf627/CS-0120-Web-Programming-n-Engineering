@@ -229,24 +229,36 @@
 
     class WordleStats {
       constructor() {
-        this.wins = parseInt(getCookie('wordleWins') || '0', 10);
-        this.totalGuesses = parseInt(getCookie('wordleGuessTotal') || '0', 10);
+        this.wins = parseInt(this.getCookie('wordleWins') || '0', 10);
+        this.totalGuesses = parseInt(this.getCookie('wordleGuessTotal') || '0', 10);
         this.render();
+      }
+
+      // internal cookie helpers (private-like)
+      setCookie(name, value, days = 365) {
+        const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+        document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+      }
+
+      getCookie(name) {
+        const regex = new RegExp('(?:^|; )' + name.replace(/[-.$?*|{}()[\]\\/+^]/g, '\\$&') + '=([^;]*)');
+        const match = document.cookie.match(regex);
+        return match ? decodeURIComponent(match[1]) : null;
       }
 
       addGame(guessCount) {
         this.wins += 1;
         this.totalGuesses += guessCount;
-        setCookie('wordleWins', this.wins);
-        setCookie('wordleGuessTotal', this.totalGuesses);
+        this.setCookie('wordleWins', this.wins);
+        this.setCookie('wordleGuessTotal', this.totalGuesses);
         this.render();
       }
 
       clear() {
         this.wins = 0;
         this.totalGuesses = 0;
-        setCookie('wordleWins', '', -1);
-        setCookie('wordleGuessTotal', '', -1);
+        this.setCookie('wordleWins', '', -1);
+        this.setCookie('wordleGuessTotal', '', -1);
         this.render();
       }
 
@@ -302,20 +314,6 @@
       document.getElementById("restartBtn").style.display = "none"; // switch button
       document.getElementById("submitBtn").style.display = "inline-block";
       document.getElementById("guessInput").style.display = "inline-block";
-    }
-
-    // Cookies
-    function setCookie(name, value, days = 365) {
-      const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
-      const cookieStr = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
-      document.cookie = cookieStr;
-    }
-
-    function getCookie(name) {
-      const regex = new RegExp('(?:^|; )' + name.replace(/[-.$?*|{}()[\]\\/+^]/g, '\\$&') + '=([^;]*)');
-      const match = document.cookie.match(regex);
-      const value = match ? decodeURIComponent(match[1]) : null;
-      return value;
     }
 
     pickAnswer(); // Generate an answer after the page is loaded (with out hitting the restartBtn!)
