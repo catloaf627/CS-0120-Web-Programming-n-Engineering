@@ -1,0 +1,53 @@
+/* Make the whole page centered */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+/* Center all content inside App */
+.App {
+  text-align: center;
+}
+
+/* Grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 5px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Individual block styling */
+.block {
+  width: 100px;
+  height: 100px;
+  font-size: 30px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* Hover effect */
+.block:hover {
+  background-color: white !important;
+  color: black;
+  border: 2px solid black;
+}
+
+/* Optional: make the title stand out */
+h1 {
+  margin-bottom: 15px;
+  color: darkgreen;
+}
