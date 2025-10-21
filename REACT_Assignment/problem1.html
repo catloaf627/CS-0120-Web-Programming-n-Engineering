@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animal Flashcards</title>
+
+    <!-- React and Babel CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      h1 {
+        color: darkgreen;
+      }
+      button {
+        font-size: 18px;
+        margin: 10px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // Data: an array of animal objects
+      const animals = [
+        { name: "Dog", sound: "woof" },
+        { name: "Cat", sound: "meow" },
+        { name: "Lion", sound: "roar" },
+        { name: "Cow", sound: "moo" }
+      ];
+
+      // Component for a single button
+      const AnimalButton = ({ name, sound }) => {
+        const handleClick = () => {
+          alert(`The ${name.toLowerCase()} says ${sound}!`);
+        };
+        return <button onClick={handleClick}>{name}</button>;
+      };
+
+      // Main App component
+      const App = () => (
+        <div>
+          <h1>Animal Flashcards</h1>
+          {animals.map((animal, index) => (
+            <AnimalButton key={index} name={animal.name} sound={animal.sound} />
+          ))}
+        </div>
+      );
+
+      // Render the app
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
