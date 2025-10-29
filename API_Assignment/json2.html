@@ -1,22 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>JS1 Q2</title>
+    <meta charset="UTF-8">
+    <title>JSON Song List</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .songBox {
+            margin-bottom: 12px;
+            padding: 10px;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+            background: #f7f7f7;
+            width: 320px;
+        }
+    </style>
 </head>
 <body>
-  <script>
-    // Fahrenheit to Celsius
-    fTemp = prompt("Enter a temperature in Fahrenheit:");
-    fTemp = Number(fTemp);
-    cTemp = (fTemp - 32) * 5 / 9;
-    alert(fTemp + "°F = " + cTemp.toFixed(2) + "°C");
 
-    // Celsius to Fahrenheit
-    cTemp2 = prompt("Enter a temperature in Celsius:");
-    cTemp2 = Number(cTemp2);
-    fTemp2 = (cTemp2 * 9 / 5) + 32;
-    alert(cTemp2 + "°C = " + fTemp2.toFixed(2) + "°F");
-  </script>
+<h2>Songs Loaded from songs.json</h2>
+
+<div id="songDisplay"></div>
+
+<script>
+    $.get("songs.json", function(data) {
+
+        // save to a variable
+        let songs = data;
+
+        let output = "";
+
+        for (let i = 0; i < songs.length; i++) {
+            output += `
+                <div class="songBox">
+                    <strong>${songs[i].title}</strong><br>
+                    Artist: ${songs[i].artist}<br>
+                    Genre: ${songs[i].genre.join(", ")}<br>
+                    Released ${songs[i].year}<br>
+                    <a href="${songs[i].link}" target="_blank">Listen</a>
+                </div>
+            `;
+        }
+
+        // display it
+        document.getElementById("songDisplay").innerHTML = output;
+
+    });
+</script>
+
 </body>
 </html>
