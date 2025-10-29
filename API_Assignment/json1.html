@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Song List</title>
+</head>
+<body>
+
+<script>
+let songList = [
+    {
+        "title": "Nobody",
+        "artist": "Wonder Girls",
+        "year": 2008,
+        "genre": ["Pop", "K-Pop"],
+        "link": "https://www.youtube.com/watch?v=qFjP-OJ7Bh4"
+    },
+    {
+        "title": "Harder, Better, Faster, Stronger",
+        "artist": "Daft Punk",
+        "year": 2001,
+        "genre": ["Electronic", "House"],
+        "link": "https://www.youtube.com/watch?v=gAjR4_CbPpQ"
+    },
+    {
+        "title": "Gimme More",
+        "artist": "Britney Spears",
+        "year": 2007,
+        "genre": ["Pop"],
+        "link": "https://www.youtube.com/watch?v=elueA2rofoo"
+    },
+    {
+        "title": "Waka Waka",
+        "artist": "Shakira",
+        "year": 2010,
+        "genre": ["Pop"],
+        "link": "https://www.youtube.com/watch?v=pRpeEdMmmQ0"
+    },
+    {
+        "title": "Low",
+        "artist": "Flo Rida",
+        "year": 2007,
+        "genre": ["Rap"],
+        "link": "https://www.youtube.com/watch?v=U2waT9TxPU0"
+    },
+    {
+        "title": "Dragostea Din Tei",
+        "artist": "O-Zone",
+        "year": 2003,
+        "genre": ["Eurodance"],
+        "link": "https://www.youtube.com/watch?v=YnopHCL1Jk8"
+    },
+    {
+        "title": "We Will Rock You",
+        "artist": "Queen",
+        "year": 1977,
+        "genre": ["Rock", "Arena Rock"],
+        "link": "https://www.youtube.com/watch?v=-tJYN-eG1zk"
+    },
+    {
+        "title": "Viva La Vida",
+        "artist": "Coldplay",
+        "year": 2008,
+        "genre": ["Pop Rock"],
+        "link": "https://www.youtube.com/watch?v=dvgZkm1xWPE"
+    }
+
+];
+
+// Convert object to string
+let songString = JSON.stringify(songList, null, 2); // beautify formatting
+
+document.write("<pre>" + songString + "</pre>");
+</script>
+
+</body>
