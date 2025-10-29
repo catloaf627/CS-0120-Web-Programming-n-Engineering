@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Filter Songs by Genre</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        #resultBox {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #aaa;
+            background: #f7f7f7;
+            width: 320px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Filter Songs By Genre</h2>
+
+<select id="genreSelect"></select>
+<button id="filterBtn">Filter</button>
+
+<div id="resultBox"></div>
+
+<script>
+
+    let songs = []; // will store JSON data
+
+    $.get("songs.json", function(data) {
+
+        songs = data; // save songs
+        
+        let genres = new Set();    // use Set so we don't duplicate genres
+
+        // extract genres from every song
+        for (let i = 0; i < songs.length; i++) {
+            for (let g = 0; g < songs[i].genre.length; g++) {
+                genres.add(songs[i].genre[g]);
+            }
+        }
+
+        // build dropdown options
+        genres.forEach(function(genre) {
+            $("#genreSelect").append(`<option value="${genre}">${genre}</option>`);
+        });
+
+    });
+
+    // event handler for Filter button
+    $("#filterBtn").on("click", function() {
+
+        let selected = $("#genreSelect").val();
+        let results = "";
+
+        for (let i = 0; i < songs.length; i++) {
+            if (songs[i].genre.includes(selected)) {
+                results += songs[i].title + "<br>";
+            }
+        }
+
+        // write results to div
+        $("#resultBox").html(results);
+
+    });
+
+</script>
+
+</body>
+</html>
