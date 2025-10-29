@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Random Joke Generator</title>
+    <style>
+        #jokeBox {
+            border: 1px solid #aaa;
+            background: #f7f7f7;
+            padding: 15px;
+            width: 400px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 20px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Need a Laugh?</h2>
+
+<button id="getJokeBtn">Tell Me a Joke 😄</button>
+
+<div id="jokeBox"></div>
+
+<script>
+document.getElementById("getJokeBtn").addEventListener("click", function() {
+
+    fetch("https://official-joke-api.appspot.com/random_joke")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("jokeBox").innerHTML =
+                data.setup + "<br><strong>" + data.punchline + "</strong>";
+        })
+        .catch(err => {
+            document.getElementById("jokeBox").innerHTML = "Error loading joke.";
+        });
+
+});
+</script>
+
+</body>
+</html>
