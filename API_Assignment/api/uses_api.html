@@ -1,44 +1,124 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Random Joke Generator</title>
-    <style>
-        #jokeBox {
-            border: 1px solid #aaa;
-            background: #f7f7f7;
-            padding: 15px;
-            width: 400px;
-            border-radius: 6px;
-            margin-top: 20px;
-            font-size: 20px;
-            line-height: 1.4;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Flip Card Joke</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff5d7;
+      margin: 0;
+      padding-top: 60px;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h2 {
+      font-size: 32px;
+      color: #333;
+      margin: 0 0 16px;
+    }
+
+    #getJokeBtn {
+      background: #ff9800;
+      color: #fff;
+      padding: 12px 25px;
+      border: 0;
+      border-radius: 6px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+    #getJokeBtn:hover { background: #ffad33; transform: scale(1.05); }
+
+    .card-container {
+      width: 400px;
+      margin-top: 40px;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+
+      perspective: 1000px;
+    }
+
+    .card {
+      width: 400px;
+      height: 200px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.7s;
+      cursor: pointer;
+    }
+    .card.flip { transform: rotateY(180deg); }
+
+    .side {
+      position: absolute;
+      inset: 0;
+      background: #fff;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      font-size: 22px;
+      backface-visibility: hidden;
+    }
+    .back { transform: rotateY(180deg); font-weight: bold; }
+
+    #hint {
+      font-size: 14px;
+      color: #555;
+      margin-top: 30px;
+      visibility: hidden;
+    }
+
+  </style>
 </head>
 <body>
 
-<h2>Need a Laugh?</h2>
+  <h2>Need a Laugh?</h2>
+  <button id="getJokeBtn">Tell Me a Joke 😄</button>
 
-<button id="getJokeBtn">Tell Me a Joke 😄</button>
+  <div class="card-container">
+    <div id="jokeCard" class="card">
+      <div class="side front" id="setupText">Click the button for a joke</div>
+      <div class="side back" id="punchlineText"></div>
+    </div>
+  </div>
 
-<div id="jokeBox"></div>
+  <div id="hint">Click the card to flip 👆</div>
 
-<script>
-document.getElementById("getJokeBtn").addEventListener("click", function() {
+  <script>
+    const btn = document.getElementById("getJokeBtn");
+    const card = document.getElementById("jokeCard");
+    const setupBox = document.getElementById("setupText");
+    const punchBox = document.getElementById("punchlineText");
+    const hint = document.getElementById("hint");
 
-    fetch("https://official-joke-api.appspot.com/random_joke")
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("jokeBox").innerHTML =
-                data.setup + "<br><strong>" + data.punchline + "</strong>";
+    btn.addEventListener("click", function () {
+      setupBox.textContent = "";
+      punchBox.textContent = "";
+      card.classList.remove("flip");
+      hint.style.visibility = "hidden";
+
+      fetch("https://official-joke-api.appspot.com/random_joke")
+        .then((res) => res.json())
+        .then((data) => {
+          setupBox.textContent = data.setup;
+          punchBox.textContent = data.punchline;
+          hint.style.visibility = "visible";
         })
-        .catch(err => {
-            document.getElementById("jokeBox").innerHTML = "Error loading joke.";
+        .catch(() => {
+          setupBox.textContent = "Error loading joke.";
         });
+    });
 
-});
-</script>
-
+    card.addEventListener("click", function () {
+      card.classList.toggle("flip");
+    });
+  </script>
 </body>
 </html>

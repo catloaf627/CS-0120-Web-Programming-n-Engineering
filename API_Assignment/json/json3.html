@@ -119,7 +119,7 @@
 
         songs = data;
 
-        let genres = new Set();
+        let genres = new Set(); // No repeats
 
         for (let i = 0; i < songs.length; i++) {
             for (let g = 0; g < songs[i].genre.length; g++) {
