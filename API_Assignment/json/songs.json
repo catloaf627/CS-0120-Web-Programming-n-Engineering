@@ -14,25 +14,11 @@
         "link": "https://www.youtube.com/watch?v=gAjR4_CbPpQ"
     },
     {
-        "title": "Gimme More",
-        "artist": "Britney Spears",
-        "year": 2007,
-        "genre": ["Pop"],
-        "link": "https://www.youtube.com/watch?v=elueA2rofoo"
-    },
-    {
         "title": "Waka Waka",
         "artist": "Shakira",
         "year": 2010,
         "genre": ["Pop"],
         "link": "https://www.youtube.com/watch?v=pRpeEdMmmQ0"
-    },
-    {
-        "title": "Low",
-        "artist": "Flo Rida",
-        "year": 2007,
-        "genre": ["Rap"],
-        "link": "https://www.youtube.com/watch?v=U2waT9TxPU0"
     },
     {
         "title": "Dragostea Din Tei",
@@ -54,6 +40,19 @@
         "year": 2008,
         "genre": ["Rock"],
         "link": "https://www.youtube.com/watch?v=dvgZkm1xWPE"
+    },
+    {
+        "title": "Roundabout",
+        "artist": "Yes",
+        "year": "1971",
+        "genre": ["Rock"],
+        "link": "https://www.youtube.com/watch?v=pk3HBb0mh5Q"
+    },
+    {
+        "title": "Rather Be",
+        "artist": "Clean Bandit ft. Jess Glynne",
+        "year": 2014,
+        "genre": ["Pop", "Electronic"],
+        "link": "https://www.youtube.com/watch?v=jUjDcqdvCrk"
     }
-
 ]
