@@ -6,12 +6,81 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        #filterArea {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        select {
+            padding: 8px 12px;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            font-size: 15px;
+            background: white;
+        }
+
+        button {
+            padding: 8px 14px;
+            background: #0277bd;
+            color: white;
+            border: none;
+            font-size: 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #015a90;
+        }
+
         #resultBox {
             margin-top: 15px;
-            padding: 10px;
-            border: 1px solid #aaa;
-            background: #f7f7f7;
-            width: 320px;
+            width: 100%;
+            max-width: 420px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .songCard {
+            background: white;
+            border-radius: 10px;
+            padding: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: 0.2s ease-in-out;
+        }
+
+        .songCard:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .songTitle {
+            font-weight: bold;
+            font-size: 18px;
+            color: #222;
+        }
+
+        .songArtist {
+            font-size: 14px;
+            color: #555;
+            margin-top: 4px;
         }
     </style>
 </head>
@@ -19,36 +88,38 @@
 
 <h2>Filter Songs By Genre</h2>
 
-<select id="genreSelect"></select>
-<button id="filterBtn">Filter</button>
+<div id="filterArea">
+    <select id="genreSelect"></select>
+    <button id="filterBtn">Filter</button>
+</div>
 
 <div id="resultBox"></div>
 
 <script>
 
-    let songs = []; // will store JSON data
+    let songs = [];
 
     $.get("songs.json", function(data) {
 
-        songs = data; // save songs
-        
-        let genres = new Set();    // use Set so we don't duplicate genres
+        songs = data;
 
-        // extract genres from every song
+        let genres = new Set();
+
         for (let i = 0; i < songs.length; i++) {
             for (let g = 0; g < songs[i].genre.length; g++) {
                 genres.add(songs[i].genre[g]);
             }
         }
 
-        // build dropdown options
+        // Add placeholder option
+        $("#genreSelect").append(`<option disabled selected>Select a genre</option>`);
+
         genres.forEach(function(genre) {
             $("#genreSelect").append(`<option value="${genre}">${genre}</option>`);
         });
 
     });
 
-    // event handler for Filter button
     $("#filterBtn").on("click", function() {
 
         let selected = $("#genreSelect").val();
@@ -56,13 +127,16 @@
 
         for (let i = 0; i < songs.length; i++) {
             if (songs[i].genre.includes(selected)) {
-                results += songs[i].title + "<br>";
+                results += `
+                    <div class="songCard">
+                        <div class="songTitle">${songs[i].title}</div>
+                        <div class="songArtist">${songs[i].artist}</div>
+                    </div>
+                `;
             }
         }
 
-        // write results to div
-        $("#resultBox").html(results);
-
+        $("#resultBox").html(results || "<div>No songs found.</div>");
     });
 
 </script>
