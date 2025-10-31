@@ -44,7 +44,7 @@
     {
         "title": "Roundabout",
         "artist": "Yes",
-        "year": "1971",
+        "year": 1971,
         "genre": ["Rock"],
         "link": "https://www.youtube.com/watch?v=pk3HBb0mh5Q"
     },
