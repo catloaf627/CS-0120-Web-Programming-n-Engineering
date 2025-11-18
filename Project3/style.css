@@ -1,0 +1,118 @@
+/* ===== Global Layout ===== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+}
+
+/* ===== Header Navigation ===== */
+.navbar {
+    background: #eee;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    width: 40px;
+    height: auto;
+    display: block;
+}
+
+.nav-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+
+
+
+/* ===== Product Cards ===== */
+.product-card {
+    width: 240px;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+    display: inline-block;
+    margin: 15px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 180px;
+    height: 180px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.button-row button,
+.button-row form button {
+    background: #007bff;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.button-row button:hover,
+.button-row form button:hover {
+    background: #0056b3;
+}
+
+/* Description */
+.description {
+    display: none;
+    margin-top: 10px;
+    text-align: left;
+    color: #444;
+}
+
+/* ===== Orders & Table ===== */
+table {
+    width: 85%;
+    margin: 10px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+th {
+    background: #e0e0e0;
+}
+
+.order-box {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    width: 85%;
+    margin: 20px auto;
+}
