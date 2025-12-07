@@ -10,6 +10,11 @@
     <% } %>
     <br>
     <a href="/">Search again</a>
+    <script>
+      console.log("Place:", "<%= result.place %>");
+      console.log("Zips:", "<%= result.zips.join(', ') %>");
+    </script>
   </body>
+
 </html>
 
