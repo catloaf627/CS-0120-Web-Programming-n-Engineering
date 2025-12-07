@@ -1,16 +1,23 @@
-const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb+srv://myUser:myPassword@cluster0.mbgk15z.mongodb.net/?appName=Cluster0";
+const { MongoClient } = require("mongodb");
 
-  console.log('one')
-  MongoClient.connect(url, function(err, db) {
-    
-  if(err) { console.log(err); }
-  else {
-    console.log('two')
-    var dbo = db.db("books");
-    var collection = dbo.collection('mybooks');
-    console.log("Success!");
-    db.close();
+const url = "mongodb+srv://myUser:Test12345@cluster0.mbgk15z.mongodb.net/";
+const client = new MongoClient(url);
+
+console.log("one");
+
+async function run() {
+  try {
+    await client.connect();
+    console.log("two");
+
+    const dbo = client.db("test");
+    console.log("Connected!!!");
+  } catch (err) {
+    console.log("Connection error:", err);
+  } finally {
+    await client.close();
+    console.log("three");
   }
-  console.log('three')
-});
+}
+
+run();
